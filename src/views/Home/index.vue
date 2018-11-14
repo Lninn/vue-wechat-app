@@ -12,15 +12,16 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import Avator from './Home/Avator.vue'
-import Scan from './Home/Scan.vue'
-import EquipmentList from '../components/EquipmentList.vue' 
-import Footer from '../components/Footer.vue' 
+import Header from '@/components/Header.vue'
+import Avator from './components/Avator.vue'
+import Scan from './components/Scan.vue'
+import EquipmentList from '@/components/EquipmentList/index' 
+import Footer from '@/components/Footer.vue' 
 
 export default {
+    name: 'Home',
     components: {
-        Header, Avator, Scan, EquipmentList, Footer
+        Header, Avator, Scan, EquipmentList, Footer,
     },
 }
 </script>

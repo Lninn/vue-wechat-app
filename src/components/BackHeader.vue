@@ -6,10 +6,22 @@
             </a>
         </div>
         <div class="weui-cell__bd">
-            <p>设备详情</p>
+            <p>{{ name }}</p>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'BackHeader',
+    props: {
+        name: {
+            type: String,
+            required: true,
+        },
+    },
+}
+</script>
 
 <style lang="less" scoped>
 .weui-cell {

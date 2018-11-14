@@ -1,17 +1,28 @@
 <template>
     <div class="weui-cells">
-        <EquipmentItem />
-        <EquipmentItem />
-        <EquipmentItem />
+        <EquipmentItem v-for="equipment in equipmentList" :key="equipment.id" :equipment="equipment" />
     </div>
 </template>
 
 <script>
-import EquipmentItem from './EquipmentItem.vue'    
+import EquipmentItem from './EquipmentItem'    
+import { fetchList } from '@/api/equipment'
 
 export default {
+    name: 'EquipmentList',
+    data() {
+        return {
+            equipmentList: [],
+        }
+    },
     components: {
         EquipmentItem,
+    },
+    mounted() {
+        fetchList().then(response => {
+            const data = response.data
+            this.equipmentList = data
+        })
     },
 }
 </script>

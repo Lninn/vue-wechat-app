@@ -43,6 +43,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Explain',
+}
+</script>
+
 <style lang="less" scoped>
 .weui-panel:before {
     content: " ";

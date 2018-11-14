@@ -8,6 +8,12 @@
 </ul>
 </template>
 
+<script>
+export default {
+    name: 'ImgText',
+}
+</script>
+
 <style lang="less" scoped>
 .graphic {
     display: block;

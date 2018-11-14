@@ -17,6 +17,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Footer',
+}
+</script>
+
 <style lang="less">
 .wx-bottom {
     position: fixed !important;

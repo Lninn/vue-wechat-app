@@ -28,6 +28,7 @@
 import Swiper from 'swiper'
 
 export default {
+    name: 'SwiperContainer',
     mounted: function() {
         new Swiper('.swiper-container', {
             // Optional parameters

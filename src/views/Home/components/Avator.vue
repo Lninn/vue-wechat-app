@@ -1,11 +1,17 @@
 <template>
     <div class="weui-flex__item">
         <div class="logo-info" data-id="UserInformation">
-            <img class="avator" src="../../assets/touxiang.jpg" alt="">
+            <img class="avator" src="@/assets/touxiang.jpg" alt="">
             <span class="greet">Michael</span>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Avator',
+}
+</script>
 
 <style lang="less">
 .weui-flex__item {

@@ -4,6 +4,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Header',
+}
+</script>
+
 <style lang="less" scoped>
 .weui-cells {
     position: fixed;

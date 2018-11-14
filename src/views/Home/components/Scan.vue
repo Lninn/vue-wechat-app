@@ -4,6 +4,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'Scan',
+}
+</script>
+
 <style lang="less">
 .weui-flex__item {
     flex: 1;

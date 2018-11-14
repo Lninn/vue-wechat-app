@@ -6,22 +6,22 @@
                     <img class="weui-media-box__thumb" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png" alt="">
                 </div>
                 <div class="weui-media-box__bd">
-                    <h4 class="weui-media-box__title">身份证自助取证机</h4>
+                    <h4 class="weui-media-box__title">{{ equipment.name }}</h4>
                     <p class="weui-media-box__desc">
                         <span>型号: </span>
-                        <span>KHNQD-81283E911</span>
+                        <span>{{ equipment.model }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>产地: </span>
-                        <span>浙江省杭州市余杭区</span>
+                        <span>{{ equipment.address }}</span>
                     </p>
                     <p class="weui-media-box__desc">
-                        <span>容量: </span>
-                        <span>卡式 200 卡式 400</span>
+                        <span>描述: </span>
+                        <span>{{ equipment.describe }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>出厂日期: </span>
-                        <span>2018年11月13日</span>
+                        <span>{{ equipment.date }}</span>
                     </p>
                 </div>
             </a>
@@ -38,6 +38,18 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'EquipmentItem',
+    props: {
+        equipment: {
+            type: Object,
+            required: true,
+        },
+    },
+}
+</script>
 
 <style lang="less" scoped>
 h4 {

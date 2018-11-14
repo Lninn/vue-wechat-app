@@ -15,31 +15,30 @@
                 </div>
             </div>
             <div class="weui-tab__panel equipment-info">
-                <component :is="'Equipment' + this.currentInformation"></component>
+                <component :is="this.currentInformation"></component>
             </div>
         </div>
-        <!-- <Footer /> -->
+        <Footer />
     </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import BackHeader from '../components/BackHeader.vue'
-import EquipmentList from '../components/EquipmentList.vue' 
-import Footer from '../components/Footer.vue'
-import SwiperContainer from '../components/SwiperContainer.vue' 
-import Explain from './EquipmentDetail/Explain.vue'
-import EquipmentImgText from './EquipmentDetail/EquipmentImgText.vue'
-import EquipmentParameter from './EquipmentDetail/EquipmentParameter.vue'
+import Header from '@/components/Header'
+import BackHeader from '@/components/BackHeader'
+import SwiperContainer from '@/components/SwiperContainer' 
+import Explain from './components/Explain'
+import ImgText from './components/ImgText'
+import Parameter from './components/Parameter'
 
 export default {
+    name: 'EquipmentDetail',
     data: function() {
         return {
             currentInformation: 'ImgText',
         }
     },
     components: {
-        Header, BackHeader, EquipmentList, Footer, SwiperContainer, Explain, EquipmentImgText, EquipmentParameter,
+        Header, BackHeader, SwiperContainer, Explain, ImgText, Parameter,
     },
     methods: {
         selectInformation: function(type, event) {

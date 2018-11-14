@@ -1,17 +1,17 @@
 <template>
   <div id="app" class="container">
-    <Home />
+    <WorkOrder />
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue'
-import EquipmentDetail from './views/EquipmentDetail.vue'
+import Home from './views/Home/index'
+import WorkOrder from './views/WorkOrder/index'
 
 export default {
   name: 'app',
   components: {
-    Home, EquipmentDetail,
+    Home, WorkOrder,
   },
 }
 </script>

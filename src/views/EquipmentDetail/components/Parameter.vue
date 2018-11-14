@@ -69,6 +69,12 @@
 </div>
 </template>
 
+<script>
+export default {
+    name: 'Parameter',
+}
+</script>
+
 <style lang="less" scoped>
 #parameter {
     background-color: #fff;
