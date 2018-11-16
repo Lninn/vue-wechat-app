@@ -10,7 +10,7 @@ import './style/app.less'
 
 import './mock'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
   render: h => h(App),

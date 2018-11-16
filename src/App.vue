@@ -1,17 +1,17 @@
 <template>
   <div id="app" class="container">
-    <WorkOrder />
+    <Login />
   </div>
 </template>
 
 <script>
 import Home from './views/Home/index'
-import WorkOrder from './views/WorkOrder/index'
+import Login from './views/Login/index'
 
 export default {
   name: 'app',
   components: {
-    Home, WorkOrder,
+    Home, Login,
   },
 }
 </script>

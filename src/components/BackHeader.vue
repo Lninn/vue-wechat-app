@@ -1,12 +1,15 @@
 <template>
     <div class="weui-cell">
         <div class="weui-cell__hd">
-            <a href="javascript:;">
+            <a v-if="showBtn" href="javascript:;">
                 <i class="iconfont"></i>返回
             </a>
         </div>
-        <div class="weui-cell__bd">
+        <div class="weui-cell__bd" :class="textAlign">
             <p>{{ name }}</p>
+        </div>
+        <div class="weui-cell__ft">
+            <slot></slot>                
         </div>
     </div>
 </template>
@@ -19,11 +22,27 @@ export default {
             type: String,
             required: true,
         },
+        showBtn: {
+            type: Boolean,
+            default: true,
+        },
     },
+    computed: {
+        textAlign() {
+            if (this.showBtn) {
+                return 'text-align'
+            } else {
+                return ''
+            }
+        }
+    }
 }
 </script>
 
 <style lang="less" scoped>
+.text-align {
+    padding-right: 16%;
+}
 .weui-cell {
     padding: 10px 15px;
     position: relative;
@@ -56,8 +75,7 @@ export default {
     .weui-cell__bd {
         margin-top: 0;
         background-color: #67baff;
-        text-align: center;
-        padding-right: 16%;
+        text-align: center;        
     }
 }
 </style>
