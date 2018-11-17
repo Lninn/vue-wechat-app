@@ -2,7 +2,7 @@
   <div>
     <div class="weui-cells__title">{{ data.name }}</div>
     <div class="weui-cells">
-        <Item
+        <AppCell
             v-for="item in data.list"
             :key="item.name"
             :label="item.label"
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import Item from './Item'
+import AppCell from './AppCell'
 
 export default {
-  name: 'Information',
+  name: 'AppImgTextCells',
   props: {
       data: {
           type: Object,
@@ -25,12 +25,12 @@ export default {
       },
   },
   components: {
-      Item,
+      AppCell,
   },
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .weui-cells__title {
     margin-top: .77em;
     margin-bottom: .3em;
@@ -39,5 +39,4 @@ export default {
     color: #999;
     font-size: 14px;
 }
-
 </style>

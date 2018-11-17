@@ -1,9 +1,9 @@
 <template>
-    <Information :data="informationData" />  
+    <AppImgTextCells :data="informationData" />  
 </template>
 
 <script>
-import Information from '../Information/index'
+import AppImgTextCells from '../AppImgTextCells/index'
 
 const data = [
     { name: 'person', label: '联系人', icon: '', value: '毕淑敏', },
@@ -15,7 +15,7 @@ const data = [
 export default {
     name: 'DetailInformation',
     components: {
-        Information,
+        AppImgTextCells,
     },
     data() {
         return {

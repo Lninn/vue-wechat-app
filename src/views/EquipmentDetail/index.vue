@@ -1,10 +1,10 @@
 <template>
     <div class="page">
          <Header>
-            <BackHeader />
-        </Header> 
-        <SwiperContainer />
-        <Explain />  
+            <BackHeader name="设备详情" />
+        </Header>
+        <AppSwiper />
+        <Explain />
         <div class="weui-tab">
             <div class="weui-navbar">
                 <div @click="selectInformation('ImgText', $event)" class="weui-navbar__item weui-bar__item_on" id="btn-graphic">
@@ -25,7 +25,7 @@
 <script>
 import Header from '@/components/Header'
 import BackHeader from '@/components/BackHeader'
-import SwiperContainer from '@/components/SwiperContainer' 
+import AppSwiper from '@/components/AppSwiper' 
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
@@ -38,7 +38,7 @@ export default {
         }
     },
     components: {
-        Header, BackHeader, SwiperContainer, Explain, ImgText, Parameter,
+        Header, BackHeader, AppSwiper, Explain, ImgText, Parameter,
     },
     methods: {
         selectInformation: function(type, event) {

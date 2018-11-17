@@ -1,15 +1,20 @@
 <template>
     <div class="weui-cell">
-        <div class="weui-cell__bd">
-            <p><i class="iconfont">{{ icon }}</i><span>{{ label }}</span></p>
+        <div class="weui-cell__hd">
+            <i class="iconfont">{{ icon }}</i>
         </div>
-        <div class="weui-cell__ft">{{ value }}</div>
-    </div>    
+        <div class="weui-cell__bd">
+            <span>{{ label }}</span>
+        </div>
+        <div class="weui-cell__ft">
+            {{ value }}
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'Item',
+    name: 'AppCell',
     props: {
         label: {
             type: String,
@@ -26,13 +31,3 @@ export default {
     },
 }
 </script>
-
-<style lang="less" scoped>
-.iconfont {
-    font-size: 1.2em;
-    color: #67baff;
-}
-span {
-    margin-left: 5px;
-}
-</style>

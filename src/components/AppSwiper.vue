@@ -1,5 +1,5 @@
 <template>
-<div class="weui-panel weui-panel_access">
+<div class="weui-panel weui-panel_access" style="margin-top: 3rem;">
 
     <div class="weui-panel__bd">
         <!-- Slider main container -->
@@ -28,7 +28,7 @@
 import Swiper from 'swiper'
 
 export default {
-    name: 'SwiperContainer',
+    name: 'AppSwiper',
     mounted: function() {
         new Swiper('.swiper-container', {
             // Optional parameters
@@ -52,23 +52,13 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
-.weui-panel {
-    margin-top: 3rem;
-}
+<style lang="less">
 .swiper-container {
     width: 290px;
     height: 300px;
-}   
+}
+
 .swiper-items img {
     width: 100%;
-}
-
-.wx-bottom {
-    position: fixed;
-}
-
-.hide-arrow {
-    visibility: auto;
 }
 </style>

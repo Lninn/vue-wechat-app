@@ -46,11 +46,12 @@ import BackHeader from '@/components/BackHeader'
 import Header from '@/components/Header'
 import AppButton from '@/components/AppButton'
 import AppButtonPlain from '@/components/AppButtonPlain'
+import AppInput from '@/components/AppInput'
 
 export default {
     name: 'Login',
     components: {
-        Header, BackHeader, AppButton, AppButtonPlain,
+        Header, BackHeader, AppButton, AppButtonPlain, AppInput,
     },
 }
 </script>

@@ -1,6 +1,10 @@
 <template>
     <div class="app-button">
-        <a href="javascript:;" class="weui-btn weui-btn_plain-default">{{ text }}</a>
+        <a
+            href="javascript:;"
+            class="weui-btn weui-btn_plain-default"
+            @click="onClick"
+        >{{ text }}</a>
     </div>
 </template>
 
@@ -12,6 +16,11 @@ export default {
             type: String,
             default: 'CLICK',        
         },
+    },
+    methods: {
+        onClick() {
+            this.$emit('onClick')
+        }
     }
 }
 </script>

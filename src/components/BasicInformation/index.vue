@@ -1,9 +1,9 @@
 <template>
-    <Information :data="informationData" :style="{marginTop: '3rem'}" />  
+    <AppImgTextCells :data="informationData" :style="{marginTop: '3rem'}" />  
 </template>
 
 <script>
-import Information from '../Information/index'
+import AppImgTextCells from '../AppImgTextCells/index'
 
 const data = [
     { name: 'company', label: '公司', icon: '', },
@@ -15,7 +15,7 @@ const data = [
 export default {
     name: 'BasicInformation',
     components: {
-        Information,
+        AppImgTextCells,
     },
     data() {
         return {

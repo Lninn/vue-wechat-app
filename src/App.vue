@@ -1,17 +1,17 @@
 <template>
   <div id="app" class="container">
-    <Login />
+    <User />
   </div>
 </template>
 
 <script>
+import User from './views/User/index'
 import Home from './views/Home/index'
-import Login from './views/Login/index'
 
 export default {
   name: 'app',
   components: {
-    Home, Login,
+    User, Home,
   },
 }
 </script>

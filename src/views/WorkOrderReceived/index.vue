@@ -1,15 +1,16 @@
 <template>
     <div class="page">
         <Header>
-            <BackHeader name="工单详情" />
+            <BackHeader name="接收工单" />
         </Header>
         <BasicInformation :ArrayData="basicInformation" />
         <DetailInformation :ArrayData="detailInformation"  />
         <PrintTextarea name="故障描述" text="请输入故障描述请输入故障描述请输入故障描述请输入故障描述请输入故障描述" />
+        
         <UploadImg />
-        <PrintTextarea name="客户评价" text="客户评价客户评价客户评价客户评价客户评价客户评价客户评价客户评价" />
-        <PrintTextarea name="所需工具" text="所需工具所需工具所需工具所需工具所需工具所需工具所需工具所需工具所需工具" />
         <PrintTextarea name="备注" text="备注备注备注备注备注备注备注备注备注备注备注备注" />
+        <InputTextarea name="所需工具" placeholder="请输入所需工具" />
+        <SubmitButton name="确认接收" />
     </div>
 </template>
 
@@ -20,6 +21,8 @@ import BasicInformation from '@/components/BasicInformation/index'
 import DetailInformation from '@/components/DetailInformation/index'
 import PrintTextarea from '@/components/PrintTextarea/index'
 import UploadImg from '@/components/UploadImg/index'
+import InputTextarea from '@/components/InputTextarea'
+import SubmitButton from '@/components/SubmitButton'
 
 const basicInformation = [
     { name: 'company', value: '管理局', },
@@ -36,9 +39,9 @@ const detailInformation = [
 ]
 
 export default {
-    name: 'WorkOrderDetail',
+    name: 'WorkOrderReceived',
     components: {
-        Header, BackHeader, DetailInformation, BasicInformation, PrintTextarea, UploadImg,
+        Header, BackHeader, DetailInformation, BasicInformation, PrintTextarea, UploadImg, InputTextarea, SubmitButton,
     },
     data() {
         return {
