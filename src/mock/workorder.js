@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 import { param2Obj } from '@/utils'
 
 const List = []
-const count = 10
+const count = 20
 
 const baseContent = '我是测试数据'
 const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
@@ -10,9 +10,9 @@ const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: Mock.mock('@guid'),
-    name: '工单名称',
+    name: '工单编号',
     number: '@title(5, 10)',
-    'state|1': ['1', '2', '3', '4',],
+    'state|1': ['INITIALIZED', 'RECEIVED', 'PROCESSING', 'COMPLETED',],
     date: Mock.mock('@datetime()'),
     describe: baseContent,
     'img|1': [image_uri + 'f960ca7d-08fc-4.png', image_uri + '9aea47db-46c8-4.png'],

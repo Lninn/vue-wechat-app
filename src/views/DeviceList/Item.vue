@@ -41,7 +41,7 @@
 
 <script>
 export default {
-    name: 'EquipmentItem',
+    name: 'Item',
     props: {
         equipment: {
             type: Object,

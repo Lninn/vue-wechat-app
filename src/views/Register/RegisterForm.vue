@@ -16,7 +16,7 @@
                 <div class="weui-cell">
                     <div class="weui-cell__hd"></div>
                     <div class="weui-cell__bd">
-                        <AppButton @onClick="onClick" text="下一步" />
+                        <LargeButton @onClick="onClick" text="下一步" />
                     </div>
                 </div>
             </div>
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import AppButton from '@/components/AppButton'
+import LargeButton from '@/components/AppButton/LargeButton'
 import AppInput from '@/components/AppInput'
 
 export default {
     name: 'RegisterForm',
     components: {
-        AppButton, AppInput,
+        LargeButton, AppInput,
     },
     data() {
         return {

@@ -1,32 +1,28 @@
 <template>
-    <div class="page">
-         <Header>
-            <div class="weui-flex">
-                <Avator />
-                <Scan />
-            </div>
-        </Header> 
-        <EquipmentList />   
-        <Footer />
-    </div>
+    <Layout>
+        <div slot="header" class="weui-flex">
+            <Avator />
+            <Scan />
+        </div>
+        <EquipmentList />
+    </Layout>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+import Layout from '@/views/Layout/index'
 import Avator from './components/Avator.vue'
 import Scan from './components/Scan.vue'
-import EquipmentList from '@/components/EquipmentList/index' 
-import Footer from '@/components/Footer.vue' 
+import EquipmentList from '../DeviceList/index' 
 
 export default {
     name: 'Home',
     components: {
-        Header, Avator, Scan, EquipmentList, Footer,
+        Avator, Scan, EquipmentList, Layout,
     },
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .weui-flex {
     display: flex;
     padding: 10px 15px;

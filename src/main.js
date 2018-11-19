@@ -10,8 +10,11 @@ import './style/app.less'
 
 import './mock'
 
+import router from './router'
+
 Vue.config.productionTip = true
 
 new Vue({
   render: h => h(App),
+  router,
 }).$mount('#app')

@@ -1,18 +1,14 @@
 <template>
   <div id="app" class="container">
-    <User />
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import User from './views/User/index'
-import Home from './views/Home/index'
-
 export default {
   name: 'app',
-  components: {
-    User, Home,
-  },
 }
 </script>
 

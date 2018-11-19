@@ -12,3 +12,14 @@ export function param2Obj(url) {
         '"}'
     )
 }
+
+export function combinaArray(originalArray = [], dataArray = []) {
+    const originalData = originalArray.slice().sort((a, b) => a.name[0].localeCompare(b.name[0]))
+    const ArrayData = dataArray.slice().sort((a, b) => a.name[0].localeCompare(b.name[0]))
+    const result = originalData.map((item, i) => {
+        return Object.assign({}, item, ArrayData[i])
+    })
+
+    return result
+}
+

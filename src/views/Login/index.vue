@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <Header>
-            <BackHeader name="登录" :showBtn="false"></BackHeader>
+            <HeaderBack title="登录" :showBtn="false"></HeaderBack>
         </Header>
         <div class="page__bd" style="margin-top: 3rem;">
             <div class="weui-flex">
@@ -25,13 +25,13 @@
                         </div>
                         <div class="weui-cell">
                             <div class="weui-cell__bd">
-                                <AppButton text="登录"/>
+                                <LargeButton text="登录"/>
                             </div>
                         </div>
                         <div class="weui-cell btn-area">
                             <div class="weui-cell__hd register-btn">
-                                <AppButtonPlain text="注册新用户" />
-                                <AppButtonPlain text="忘记密码?" />
+                                <SmallButton text="注册新用户" />
+                                <SmallButton text="忘记密码?" />
                             </div>
                         </div>
                     </div>
@@ -42,16 +42,15 @@
 </template>
 
 <script>
-import BackHeader from '@/components/BackHeader'
-import Header from '@/components/Header'
-import AppButton from '@/components/AppButton'
-import AppButtonPlain from '@/components/AppButtonPlain'
-import AppInput from '@/components/AppInput'
+import HeaderBack from '@/components/Header/HeaderBack'
+import Header from '@/components/Header/index'
+import SmallButton from '@/components/AppButton/SmallButton'
+import LargeButton from '@/components/AppButton/LargeButton'
 
 export default {
     name: 'Login',
     components: {
-        Header, BackHeader, AppButton, AppButtonPlain, AppInput,
+        Header, HeaderBack, LargeButton, SmallButton, 
     },
 }
 </script>

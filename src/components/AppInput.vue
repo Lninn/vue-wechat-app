@@ -29,10 +29,3 @@ export default {
     },
 }
 </script>
-
-<style lang="less" scoped>
-.iconfont {
-    font-size: 1.2em;
-    color: #67baff;
-}
-</style>
