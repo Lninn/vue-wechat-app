@@ -6,12 +6,11 @@
 
 <script>
 import OutputTextarea from '@/components/AppTextarea/OutputTextarea'
-import UploadImg from '@/components/UploadImg/index'
 
 export default {
     name: 'EvaluateCell',
     components: {
-        OutputTextarea, UploadImg,
+        OutputTextarea,
     },
 }
 </script>

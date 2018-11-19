@@ -11,7 +11,6 @@
 
 <script>
 import Layout from '@/views/Layout/index'
-import HeaderBack from '@/components/Header/HeaderBack'
 import Connection from './components/Connection'
 import InputTextarea from '@/components/AppTextarea/InputTextarea'
 import UploadImg from '@/components/UploadImg/index'
@@ -28,7 +27,7 @@ const equipment  = [
 export default {
     name: 'Maintain',
     components: {
-        Layout, HeaderBack, Connection, InputTextarea, UploadImg, LargeButton, EquipmentCell,
+        Layout, Connection, InputTextarea, UploadImg, LargeButton, EquipmentCell,
     },
     data() {
         return {
