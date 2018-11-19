@@ -1,9 +1,9 @@
 <template>
     <div class="weui-cells">
         <Item
-            v-for="equipment in equipmentList"
-            :key="equipment.id"
-            :equipment="equipment"
+            v-for="device in deviceList"
+            :key="device.id"
+            :device="device"
         />
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
     name: 'DeviceList',
     data() {
         return {
-            equipmentList: [],
+            deviceList: [],
         }
     },
     components: {
@@ -25,7 +25,7 @@ export default {
     mounted() {
         fetchList().then(response => {
             const data = response.data
-            this.equipmentList = data
+            this.deviceList = data
         })
     },
 }

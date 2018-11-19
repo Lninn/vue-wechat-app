@@ -1,6 +1,8 @@
 import Mock from 'mockjs'
 import { param2Obj } from '@/utils'
 
+const Random = Mock.Random
+
 const List = []
 const count = 10
 
@@ -17,6 +19,25 @@ for (let i = 0; i < count; i++) {
     describe: baseContent,
     'img|1': [image_uri + 'f960ca7d-08fc-4.png', image_uri + '9aea47db-46c8-4.png'],
   }))
+}
+
+
+const titleList = []
+for (let index = 0; index < 3; index++) {
+  titleList.push({ id: Mock.mock('@guid'), path: Random.dataImage('750x860', 'Hello Mock.js!'), })
+}
+
+const mainList = []
+for (let index = 0; index < 3; index++) {
+  mainList.push({ id: Mock.mock('@guid'), path: Random.dataImage('1125x1467', 'Hello Mock.js!'), })
+}
+
+const data = {
+  img: {
+    title_list: titleList,
+    main_list: mainList,
+  },
+  parameters: [],
 }
 
 export default {
@@ -42,13 +63,12 @@ export default {
     // }
     return List
   },
-  getEquipment: (config) => {
-    // const { id } = param2Obj(config.url)
-    // for (const equip of List) {
-    //   if (equip.id === +id) {
-    //     return article
-    //   }
-    // }
-    return {}
+  getDevice: (config) => {
+    const { id } = param2Obj(config.url)
+    for (const device of List) {
+      if (device.id === +id) {
+        return device
+      }
+    }
   },
 }

@@ -25,16 +25,22 @@ import AppSwiper from '@/components/AppSwiper'
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
+import { fetchDevice } from '@/api/equipment'
 
 export default {
     name: 'DeviceInformation',
     data: function() {
         return {
             currentInformation: 'ImgText',
+            deviceData: {},
         }
     },
     components: {
         Layout, HeaderBack, AppSwiper, Explain, ImgText, Parameter,
+    },
+    created() {
+        const id = this.$route.params && this.$route.params.id
+        this.fatchData(id)
     },
     methods: {
         selectInformation: function(type, event) {
@@ -46,7 +52,14 @@ export default {
                 }
             })
             this.currentInformation = type
-        }
+        },
+        fatchData(id) {
+            fetchDevice(id).then(response => {
+                const data = response.data
+                console.log('device data ', data)
+                this.deviceData = data
+            })
+        },
     }
 }
 </script>

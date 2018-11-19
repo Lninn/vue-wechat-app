@@ -1,6 +1,5 @@
 import Mock from 'mockjs'
-import loginAPI from './login'
-import equipmentAPI from './equipment'
+import equipmentAPI from './device'
 import workorderAPI from './workorder'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
@@ -36,7 +35,8 @@ Mock.XHR.prototype.send = function() {
 // Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
 
 // 设备相关
-Mock.mock(/\/equipment\/list/, 'get', equipmentAPI.getList)
+Mock.mock(/\/devices\/$/, 'get', equipmentAPI.getList)
+Mock.mock(/\/devices\/*/, 'get', equipmentAPI.getDevice)
 
 // 工单相关
 Mock.mock(/\/workorder\/list/, 'get', workorderAPI.getList)

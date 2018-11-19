@@ -49,7 +49,7 @@ export default new Router({
         component: () => import('@/views/Register/index'),
     },
     {
-        path: '/detail',
+        path: '/devices/:id',
         name: 'detail',
         component: () => import('@/views/DeviceInformation/index'),
     },

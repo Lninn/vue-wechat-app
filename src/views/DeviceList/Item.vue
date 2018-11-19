@@ -6,28 +6,28 @@
                     <img class="weui-media-box__thumb" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png" alt="">
                 </div>
                 <div class="weui-media-box__bd">
-                    <h4 class="weui-media-box__title">{{ equipment.name }}</h4>
+                    <h4 class="weui-media-box__title">{{ device.name }}</h4>
                     <p class="weui-media-box__desc">
                         <span>型号: </span>
-                        <span>{{ equipment.model }}</span>
+                        <span>{{ device.model }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>产地: </span>
-                        <span>{{ equipment.address }}</span>
+                        <span>{{ device.address }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>描述: </span>
-                        <span>{{ equipment.describe }}</span>
+                        <span>{{ device.describe }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>出厂日期: </span>
-                        <span>{{ equipment.date }}</span>
+                        <span>{{ device.date }}</span>
                     </p>
                 </div>
             </a>
         </div>
         <div class="weui-panel__ft">
-            <router-link to="/detail" class="weui-btn weui-btn_mini">
+            <router-link :to="'/devices/' + device.id" class="weui-btn weui-btn_mini">
                 <i class="iconfont"></i>
                 <span>详细资料</span>
             </router-link>
@@ -43,7 +43,7 @@
 export default {
     name: 'Item',
     props: {
-        equipment: {
+        device: {
             type: Object,
             required: true,
         },
