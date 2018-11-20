@@ -10,7 +10,7 @@
 
 <script>
 import Item from './Item'    
-import { fetchList } from '@/api/equipment'
+import { fetchList } from '@/api/devices'
 
 export default {
     name: 'DeviceList',

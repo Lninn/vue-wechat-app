@@ -30,7 +30,7 @@ import AppSwiper from '@/components/AppSwiper/index'
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
-import { fetchDevice } from '@/api/equipment'
+import { fetchDevice } from '@/api/devices'
 
 export default {
     name: 'DeviceInformation',
