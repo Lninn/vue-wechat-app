@@ -54,8 +54,8 @@ export default new Router({
         component: () => import('@/views/DeviceInformation/index'),
     },
     {
-        path: '/repair',
-        name: 'repair',
+        path: '/maintain/:id',
+        name: 'maintain',
         component: () => import('@/views/Maintain/index'),
     },
     {

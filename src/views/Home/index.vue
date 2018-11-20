@@ -4,7 +4,7 @@
             <Avator />
             <Scan />
         </div>
-        <EquipmentList />
+        <DeviceList />
     </Layout>
 </template>
 
@@ -12,12 +12,12 @@
 import Layout from '@/views/Layout/index'
 import Avator from './components/Avator.vue'
 import Scan from './components/Scan.vue'
-import EquipmentList from '../DeviceList/index' 
+import DeviceList from '../DeviceList/index' 
 
 export default {
     name: 'Home',
     components: {
-        Avator, Scan, EquipmentList, Layout,
+        Avator, Scan, DeviceList, Layout,
     },
 }
 </script>

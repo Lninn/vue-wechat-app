@@ -34,5 +34,8 @@ export default {
             equipment,
         }
     },
+    mounted() {
+
+    },
 }
 </script>

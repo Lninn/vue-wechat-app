@@ -4,7 +4,7 @@ import { param2Obj, getRandomInt } from '@/utils'
 const Random = Mock.Random
 
 const List = []
-const count = 10
+const count = 30
 
 const baseContent = '我是测试数据'
 const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
@@ -31,6 +31,7 @@ for (let index = 0; index < 3; index++) {
   mainList.push({ id: Mock.mock('@guid'), path: Random.dataImage('1125x1467', 'Hello Mock.js!'), })
 }
 
+/* ----- getDevice ------ */
 const getChildren = function(num) {
   const result = []
   for (let index = 0; index < num; index++) {
@@ -79,26 +80,23 @@ const device = function() {
 
 export default {
   getList: config => {
-    // const { importance, type, title, page = 1, limit = 20, sort } = param2Obj(config.url)
+    const { name, page = 1, limit = 20, sort } = param2Obj(config.url)
 
-    // let mockList = List.filter(item => {
-    //   if (importance && item.importance !== +importance) return false
-    //   if (type && item.type !== type) return false
-    //   if (title && item.title.indexOf(title) < 0) return false
-    //   return true
-    // })
+    let mockList = List.filter(item => {
+      if (name && item.title.indexOf(name) < 0) return false
+      return true
+    })
 
-    // if (sort === '-id') {
-    //   mockList = mockList.reverse()
-    // }
+    if (sort === '-id') {
+      mockList = mockList.reverse()
+    }
 
-    // const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
+    const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
 
-    // return {
-    //   total: mockList.length,
-    //   items: pageList
-    // }
-    return List
+    return {
+      total: mockList.length,
+      items: pageList,
+    }
   },
   getDevice: (config) => {
     const { id } = param2Obj(config.url)

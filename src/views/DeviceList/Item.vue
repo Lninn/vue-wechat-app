@@ -31,7 +31,7 @@
                 <i class="iconfont"></i>
                 <span>详细资料</span>
             </router-link>
-            <router-link to="/repair" class="weui-btn weui-btn_mini">
+            <router-link :to="'/maintain/' + device.id" class="weui-btn weui-btn_mini">
                 <i class="iconfont"></i>
                 <span>报修</span>
             </router-link>

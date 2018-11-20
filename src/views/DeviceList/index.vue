@@ -25,7 +25,7 @@ export default {
     mounted() {
         fetchList().then(response => {
             const data = response.data
-            this.deviceList = data
+            this.deviceList = data.items
         })
     },
 }
