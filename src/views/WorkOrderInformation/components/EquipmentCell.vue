@@ -10,7 +10,7 @@ const cellData = [
     { name: 'name', label: '名称', icon: '', },
     { name: 'model', label: '型号', icon: '', },
     { name: 'company', label: '公司', icon: '', },
-    { name: 'position', label: '位置', icon: '', },
+    { name: 'address', label: '位置', icon: '', },
 ]
 
 export default {

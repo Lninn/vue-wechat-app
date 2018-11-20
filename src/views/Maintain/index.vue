@@ -1,6 +1,6 @@
 <template>
     <Layout :hideFooter="true" title="设备报修">
-        <EquipmentCell :ArrayData="equipment" style="margin-top: 3rem;" />
+        <EquipmentCell :ArrayData="equipmentData" style="margin-top: 3rem;" />
         <Connection />
         <InputTextarea :title="'故障描述'" :placeholder="'请输入故障描述'" />
         <UploadImg />
@@ -16,11 +16,12 @@ import InputTextarea from '@/components/AppTextarea/InputTextarea'
 import UploadImg from '@/components/UploadImg/index'
 import LargeButton from '@/components/AppButton/LargeButton'
 import EquipmentCell from '../WorkOrderInformation/components/EquipmentCell'
+import { mapGetters } from 'vuex'
 
-const equipment  = [
+let equipment  = [
     { name: 'name', value: '身份证自助取证机', },
     { name: 'model', value: 'BY-788928783', },
-    { name: 'position', value: '浙江省杭州市滨江区', },
+    { name: 'address', value: '浙江省杭州市滨江区', },
     { name: 'company', value: 'XXX 有限公司', },
 ]
 
@@ -29,9 +30,20 @@ export default {
     components: {
         Layout, Connection, InputTextarea, UploadImg, LargeButton, EquipmentCell,
     },
-    data() {
-        return {
-            equipment,
+    computed: {
+        ...mapGetters([
+            'getDeviceById',
+        ]),
+        equipmentData() {
+            const id = this.$route.params && this.$route.params.id
+            const data = this.$store.getters.getDeviceById(id)
+           
+            equipment = equipment.map(item => {
+                item.value = data[item.name]
+                return item
+            })
+
+            return equipment
         }
     },
     mounted() {

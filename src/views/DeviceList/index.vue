@@ -10,23 +10,18 @@
 
 <script>
 import Item from './Item'    
-import { fetchList } from '@/api/devices'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     name: 'DeviceList',
-    data() {
-        return {
-            deviceList: [],
-        }
-    },
+    computed: mapState({
+        deviceList: state => state.devices
+    }),
     components: {
         Item,
     },
     mounted() {
-        fetchList().then(response => {
-            const data = response.data
-            this.deviceList = data.items
-        })
+        this.$store.dispatch('getDevices')
     },
 }
 </script>

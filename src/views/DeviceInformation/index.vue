@@ -31,24 +31,29 @@ import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
 import { fetchDevice } from '@/api/devices'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
     name: 'DeviceInformation',
     data: function() {
         return {
             imgText: true,
-            titleList: [],
-            mainList: [],
-            information: {},
-            parameters: [],
         }
+    },
+    computed: {
+        ...mapGetters([
+            'titleList',
+            'mainList',
+            'information',
+            'parameters',
+        ]),
     },
     components: {
         Layout, HeaderBack, AppSwiper, Explain, ImgText, Parameter,
     },
     created() {
         const id = this.$route.params && this.$route.params.id
-        this.fatchData(id)
+        this.$store.dispatch('getDevice', id)
     },
     methods: {
         selectInformation: function(event) {
@@ -60,20 +65,6 @@ export default {
                 }
             })
             this.imgText = !this.imgText
-        },
-        fatchData(id) {
-            fetchDevice(id).then(response => {
-                const data = response.data
-                const { information, images, parameters } = data
-                this.information = information
-                if (images.titleList && images.titleList.length) {
-                    this.titleList = images.titleList
-                }
-                if (images.mainList && images.mainList.length) {
-                    this.mainList = images.mainList
-                }
-                this.parameters = parameters
-            })
         },
     }
 }

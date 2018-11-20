@@ -13,9 +13,10 @@ for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: Mock.mock('@guid'),
     'name|1': ['身份证自助取证机', '身份证自助发证机', '身份证自助受理机'],
-    model: '@title(5, 10)',
+    model: Mock.mock('@id()'),
     address: Mock.mock('@county(true)'),
     date: Mock.mock('@datetime()'),
+    company: Mock.mock('@csentence(5)'),
     describe: baseContent,
     'img|1': [image_uri + 'f960ca7d-08fc-4.png', image_uri + '9aea47db-46c8-4.png'],
   }))
@@ -68,6 +69,7 @@ const device = function() {
       name: Mock.mock('@csentence(5)'),
       model: Mock.mock('@id'),
       date: Mock.mock('@date()'),
+      company: Mock.mock('@csentence(5)'),
       address: Mock.mock('@county(true)'),
     },
     images: {
