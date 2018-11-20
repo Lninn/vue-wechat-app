@@ -1,5 +1,5 @@
 import Mock from 'mockjs'
-import { param2Obj } from '@/utils'
+import { param2Obj, getRandomInt } from '@/utils'
 
 const Random = Mock.Random
 
@@ -21,7 +21,6 @@ for (let i = 0; i < count; i++) {
   }))
 }
 
-
 const titleList = []
 for (let index = 0; index < 3; index++) {
   titleList.push({ id: Mock.mock('@guid'), path: Random.dataImage('750x860', 'Hello Mock.js!'), })
@@ -32,12 +31,50 @@ for (let index = 0; index < 3; index++) {
   mainList.push({ id: Mock.mock('@guid'), path: Random.dataImage('1125x1467', 'Hello Mock.js!'), })
 }
 
-const data = {
-  img: {
-    title_list: titleList,
-    main_list: mainList,
-  },
-  parameters: [],
+const getChildren = function(num) {
+  const result = []
+  for (let index = 0; index < num; index++) {
+    const obj = {
+      id: Mock.mock('@guid'),
+      name: Mock.mock('@csentence(3, 5)'),
+      text: Mock.mock('@cparagraph(1, 3)'),
+    }
+
+    result.push(obj)
+  }
+  
+  return result
+}
+
+const getChildrenWithTitle = function(num) { 
+  const result = []
+  for (let index = 0; index < num; index++) {
+    const obj = {
+      id: Mock.mock('@guid'),
+      title: Mock.mock('@csentence(5)'),
+      children: getChildren(getRandomInt(3, 5)),
+    }
+
+    result.push(obj)
+  }
+
+  return result
+}
+
+const device = function() {
+  return {
+    information: {
+      name: Mock.mock('@csentence(5)'),
+      model: Mock.mock('@id'),
+      date: Mock.mock('@date()'),
+      address: Mock.mock('@county(true)'),
+    },
+    images: {
+      titleList: titleList,
+      mainList: mainList,
+    },
+    parameters: getChildrenWithTitle(getRandomInt(3, 6)),
+  }
 }
 
 export default {
@@ -65,10 +102,6 @@ export default {
   },
   getDevice: (config) => {
     const { id } = param2Obj(config.url)
-    for (const device of List) {
-      if (device.id === +id) {
-        return device
-      }
-    }
+    return device()
   },
 }

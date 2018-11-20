@@ -3,12 +3,10 @@
 
     <div class="weui-panel__bd">
         <!-- Slider main container -->
-        <div class="swiper-container swiper-container-horizontal swiper-container-ios">
+        <div class="swiper-container">
             <!-- Additional required wrapper -->
-            <div class="swiper-wrapper" style="transform: translate3d(-580px, 0px, 0px); transition-duration: 0ms;">
-                <div class="swiper-slide swiper-items swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 290px;"><img data-id="7fbc4b6e-4d19-4a27-9b92-d153d5582526" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png"></div>
-                <div class="swiper-slide swiper-items swiper-slide-duplicate-active swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 290px;"><img data-id="7fbc4b6e-4d19-4a27-9b92-d153d5582526" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png"></div>
-                <div class="swiper-slide swiper-items swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 290px;"><img data-id="7fbc4b6e-4d19-4a27-9b92-d153d5582526" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png"></div>
+            <div class="swiper-wrapper">
+                <Item v-for="image in imageList" :key="image.id" :image="image" />
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
@@ -24,12 +22,24 @@
 </div>
 </template>
 
+
+
 <script>
 import Swiper from 'swiper'
+import Item from './Item'
 
 export default {
     name: 'AppSwiper',
-    mounted: function() {
+    components: {
+        Item,
+    },
+    props: {
+        imageList: {
+            type: Array,
+            required: true,
+        },
+    },
+    updated: function() {
         new Swiper('.swiper-container', {
             // Optional parameters
             direction: 'horizontal',

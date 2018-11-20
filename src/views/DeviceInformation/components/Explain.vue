@@ -2,18 +2,18 @@
     <div class="weui-panel weui-panel_access">
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text" id="equipment-information">
-                <h4 class="weui-media-box__title" name="name">测试设备名称</h4>
+                <h4 class="weui-media-box__title" name="name">{{ device.name }}</h4>
                 <p class="weui-media-box__desc">
                     <span>型号: </span>
-                    <span name="model">设备编号</span>
+                    <span name="model">{{ device.model }}</span>
                 </p>
                 <p class="weui-media-box__desc">
                     <span>出厂日期: </span>
-                    <span name="date">2018/11/1 12:45:59</span>
+                    <span name="date">{{ device.date }}</span>
                 </p>
                 <p class="weui-media-box__desc">
                     <span>产地: </span>
-                    <span name="address">生产地址</span>
+                    <span name="address">{{ device.address }}</span>
                 </p>
             </div>
 
@@ -46,6 +46,12 @@
 <script>
 export default {
     name: 'Explain',
+    props: {
+        device: {
+            type: Object,
+            required: true,
+        },
+    },
 }
 </script>
 

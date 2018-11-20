@@ -1,18 +1,23 @@
 <template>
     <Layout :hideFooter="true" title="设备详情">
-        <AppSwiper />
-        <Explain />
+        <AppSwiper :imageList="titleList" />
+        <Explain :device="information" />
         <div class="weui-tab">
             <div class="weui-navbar">
-                <div @click="selectInformation('ImgText', $event)" class="weui-navbar__item weui-bar__item_on" id="btn-graphic">
+                <div @click="selectInformation($event)" class="weui-navbar__item weui-bar__item_on">
                     图文详情
                 </div>
-                <div @click="selectInformation('Parameter', $event)" class="weui-navbar__item" id="btn-parameter">
+                <div @click="selectInformation($event)" class="weui-navbar__item">
                     规格参数
                 </div>
             </div>
             <div class="weui-tab__panel equipment-info">
-                <component :is="this.currentInformation"></component>
+                <template v-if="imgText === true">
+                    <ImgText :imageList="mainList" />
+                </template>
+                <template v-else>
+                    <Parameter :params="parameters" />
+                </template>
             </div>
         </div>
     </Layout>
@@ -21,7 +26,7 @@
 <script>
 import Layout from '@/views/Layout/index'
 import HeaderBack from '@/components/Header/HeaderBack'
-import AppSwiper from '@/components/AppSwiper' 
+import AppSwiper from '@/components/AppSwiper/index' 
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
@@ -31,8 +36,11 @@ export default {
     name: 'DeviceInformation',
     data: function() {
         return {
-            currentInformation: 'ImgText',
-            deviceData: {},
+            imgText: true,
+            titleList: [],
+            mainList: [],
+            information: {},
+            parameters: [],
         }
     },
     components: {
@@ -43,7 +51,7 @@ export default {
         this.fatchData(id)
     },
     methods: {
-        selectInformation: function(type, event) {
+        selectInformation: function(event) {
             const elem = event.target
             elem.classList.add('weui-bar__item_on')
             Array.from(elem.parentNode.children).forEach(child => {
@@ -51,13 +59,20 @@ export default {
                     child.classList.remove('weui-bar__item_on')
                 }
             })
-            this.currentInformation = type
+            this.imgText = !this.imgText
         },
         fatchData(id) {
             fetchDevice(id).then(response => {
                 const data = response.data
-                console.log('device data ', data)
-                this.deviceData = data
+                const { information, images, parameters } = data
+                this.information = information
+                if (images.titleList && images.titleList.length) {
+                    this.titleList = images.titleList
+                }
+                if (images.mainList && images.mainList.length) {
+                    this.mainList = images.mainList
+                }
+                this.parameters = parameters
             })
         },
     }
