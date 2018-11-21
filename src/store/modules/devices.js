@@ -1,5 +1,14 @@
-import { SET_DEVICES_LIST, SET_DEVICE_ITEM } from '../mutation-types'
-import { fetchList, fetchDevice } from '@/api/devices'
+import {
+    SET_DEVICES_LIST,
+    SET_DEVICE_ITEM,
+    SET_FORMDATA_CONNECT,
+    SET_FORMDATA_DETAIL,
+    SET_FORMDATA_REMARK,
+    SET_FORMDATA_FILES,
+} from '../mutation-types'
+
+import weui from 'weui.js'
+import { fetchList, fetchDevice, maintainDevice, } from '@/api/devices'
 
 const state = {
     list: [],
@@ -7,6 +16,12 @@ const state = {
         images: {},
         information: {},
         parameters: [],
+    },
+    formData: {
+        connection: null,
+        detail: null,
+        remark: null,
+        files: null,
     },
 }
 
@@ -24,6 +39,35 @@ const getters = {
     getItemById: state => (id) => {
         return state.list.find(dev => dev.id === id)
     },
+    validForm: state => {
+        if (!state.formData.connection) {
+            weui.topTips('请输入联系方式', {
+                duration: 1500,
+            })
+            return false
+        } else if (!state.formData.detail) {
+            weui.topTips('请输入故障描述', {
+                duration: 1500,
+            })
+            return false
+        }
+
+        return true
+    },
+    getPostData: state => {
+        const data = new FormData()
+        const { connection, detail, remark, files } = state.formData
+
+        data.append('name', connection.name)
+        data.append('phone', connection.phone)
+        data.append('descibe', detail)
+        data.append('remark', remark)
+        for (let index = 0, len = files.length; index < len; index++) {
+            data.append('file-image' + index, files)
+        }
+
+        return data
+    },
 }
 
 const mutations = {
@@ -32,6 +76,18 @@ const mutations = {
     },
     [SET_DEVICE_ITEM] (state, { item, }) {
         state.item = item
+    },
+    [SET_FORMDATA_CONNECT] (state, value) {
+        state.formData.connection = value
+    },
+    [SET_FORMDATA_DETAIL] (state, value) {
+        state.formData.detail = value
+    },
+    [SET_FORMDATA_REMARK] (state, value) {
+        state.formData.remark = value
+    },
+    [SET_FORMDATA_FILES] (state, value) {
+        state.formData.files = value
     },
 }
 
@@ -50,6 +106,18 @@ const actions = {
             })
         })
     },
+    submit({ getters, }, callback) {
+        if (!getters.validForm) {
+            return
+        }
+
+        maintainDevice(getters.getPostData).then(response => {
+            const data = response.data
+            if (data.code === 2000) {
+                callback()
+            }
+        })
+    }
 }
 
 export default {

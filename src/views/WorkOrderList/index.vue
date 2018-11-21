@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <slot slot="header">
-            <AppSelect :currentState="state" @changeState="onInput" />
+            <AppSelect :currentState="ItemState" @changeState="SET_ITEMSTATE" />
         </slot>
         <div class="weui-cells workorder-list">
             <Item
@@ -17,53 +17,35 @@
 import Layout from '@/views/Layout/index'
 import AppSelect from '@/components/AppSelect'
 import Item from './Item.vue'
-import { fetchList } from '@/api/workorder' 
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpers('workOrder')
+
 
 export default {
     name: 'WorkOrderList',
     components: {
         Layout, AppSelect, Item,
     },
-    data() {
-        return {
-            state: 'ALL',
-            WorkOrderList: [],
-        }
-    },
     computed: {
-        filterState() {
-            const state = this.state
-            if (state === 'WAITING') {
-                return ['INITIALIZED', ]
-            } else if (state === 'PROCESSING') {
-                return ['RECEIVED', 'PROCESSING',]
-            } else if (state === 'COMPLETED') {
-                return [state, ]
-            } else {
-                return ['ALL', ]
-            }
-        },
-        filterList() {
-            const filterState = this.filterState
-            let list = this.WorkOrderList.slice()
-
-            if (filterState) {
-                list = list.filter(({ state }) => filterState.includes(state) || filterState.includes('ALL'))
-            }
-
-            return list
-        },
+        ...mapState({
+            WorkOrderList: state => state.list,
+            ItemState: state => state.ItemState,
+        }),
+        ...mapGetters([
+            'filterList',
+        ]),
     },
     mounted() {
-        fetchList().then(response => {
-            const data = response.data
-            this.WorkOrderList = data.items
-        })
+        this.getWorkOrders()
     },
     methods: {
-        onInput(value) {
-            this.state = value
-        },
+        ...mapActions([
+            'getWorkOrders',
+        ]),
+        ...mapMutations([
+            'SET_ITEMSTATE',
+        ]),
     },
 }
 </script>
