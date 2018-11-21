@@ -57,7 +57,7 @@ export default {
     mounted() {
         fetchList().then(response => {
             const data = response.data
-            this.WorkOrderList = data
+            this.WorkOrderList = data.items
         })
     },
     methods: {

@@ -1,6 +1,6 @@
 <template>
     <Layout :hideFooter="true" title="设备详情">
-        <AppSwiper :imageList="titleList" />
+        <AppSwiper :imageList="imageList('titleList')" />
         <Explain :device="information" />
         <div class="weui-tab">
             <div class="weui-navbar">
@@ -13,7 +13,7 @@
             </div>
             <div class="weui-tab__panel equipment-info">
                 <template v-if="imgText === true">
-                    <ImgText :imageList="mainList" />
+                    <ImgText :imageList="imageList('mainList')" />
                 </template>
                 <template v-else>
                     <Parameter :params="parameters" />
@@ -30,8 +30,10 @@ import AppSwiper from '@/components/AppSwiper/index'
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
-import { fetchDevice } from '@/api/devices'
-import { mapState, mapActions, mapGetters } from 'vuex'
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers('devices')
+import { toggleClass } from '@/utils'
 
 export default {
     name: 'DeviceInformation',
@@ -42,8 +44,7 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'titleList',
-            'mainList',
+            'imageList',
             'information',
             'parameters',
         ]),
@@ -53,17 +54,15 @@ export default {
     },
     created() {
         const id = this.$route.params && this.$route.params.id
-        this.$store.dispatch('getDevice', id)
+        this.getDevice(id)
     },
     methods: {
+        ...mapActions([
+            'getDevice',
+        ]),
         selectInformation: function(event) {
             const elem = event.target
-            elem.classList.add('weui-bar__item_on')
-            Array.from(elem.parentNode.children).forEach(child => {
-                if (child !== elem) {
-                    child.classList.remove('weui-bar__item_on')
-                }
-            })
+            toggleClass(elem, 'weui-bar__item_on')
             this.imgText = !this.imgText
         },
     }

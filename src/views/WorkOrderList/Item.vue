@@ -3,10 +3,10 @@
         <div class="weui-panel__bd">
             <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                 <div class="weui-media-box__bd">
-                    <h4 class="weui-media-box__title">{{ workorder.name }}</h4>
+                    <h4 class="weui-media-box__title">{{ workorder.workorderNumber }}</h4>
                     <p class="weui-media-box__desc">
                         <span>设备编号: </span>
-                        <span>{{ workorder.number }}</span>
+                        <span>{{ workorder.deviceNumber }}</span>
                     </p>
                     <p class="weui-media-box__desc">
                         <span>上报时间: </span>
@@ -27,7 +27,7 @@
             </a>
         </div>
         <div class="weui-panel__ft">
-            <router-link to="/workOrderDetail" class="weui-btn weui-btn_mini wx-btn">
+            <router-link :to="'/workorders/' + workorder.id" class="weui-btn weui-btn_mini wx-btn">
                 <i class="iconfont"></i>
                 <span>查看详情</span>
             </router-link>

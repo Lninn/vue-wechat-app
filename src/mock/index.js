@@ -40,6 +40,7 @@ Mock.mock(/\/devices\/*/, 'get', equipmentAPI.getDevice)
 Mock.mock(/\/maintain\//, 'post', equipmentAPI.maintainDevice)
 
 // 工单相关
-Mock.mock(/\/workorder\/list/, 'get', workorderAPI.getList)
+Mock.mock(/\/workorders\/$/, 'get', workorderAPI.getList)
+Mock.mock(/\/workorders\/*/, 'get', workorderAPI.getWorkOrder)
 
 export default Mock

@@ -1,78 +1,85 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { fetchList, fetchDevice } from '@/api/devices'
+import devices from './modules/devices'
+
+import { fetchWorkOrder } from '@/api/workorder'
 
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
 const state = {
-  devices: [],
-  device: {},
+  workOrder: {},
 }
 
 const getters = {
-  titleList: state => {
-    if (state.device && state.device.images) {
-      return state.device.images.titleList
+  workOrderInformation: state => {
+    if (state.workOrder.information) {
+      return state.workOrder.information
+    }
+  },
+  workOrderDevice: state => {
+    if (state.workOrder.device) {
+      return state.workOrder.device
+    }
+  },
+  workOrderConnect: state => {
+    if (state.workOrder.connection) {
+      return state.workOrder.connection
+    }
+  },
+  workOrderDescibe: state => {
+    if (state.workOrder.descibe) {
+      return state.workOrder.descibe
+    }
+  },
+  workOrderImages1: state => {
+    if (state.workOrder.images1 && state.workOrder.images1.length) {
+      return state.workOrder.images1
     }
 
     return []
   },
-  mainList: state => {
-    if (state.device && state.device.images) {
-      return state.device.images.mainList
+  workOrderImages2: state => {
+    if (state.workOrder.images2 && state.workOrder.images2.length) {
+      return state.workOrder.images2
     }
 
     return []
   },
-  information: state => {
-    if (state.device.information) {
-      return state.device.information
+  workOrderFeedback: state => {
+    if (state.workOrder.feedback) {
+      return state.workOrder.feedback
     }
-
-    return {}
   },
-  parameters: state => {
-    if (state.device.parameters && state.device.parameters.length) {
-      return state.device.parameters
+  workOrderEvaluate: state => {
+    if (state.workOrder.evaluate) {
+      return state.workOrder.evaluate
     }
-
-    return []
-  },
-  getDeviceById: state => (id) => {
-    return state.devices.find(device => device.id === id)
   },
 }
 
 const mutations = {
-  SET_DEVICE_LIST(state, { list }) {
-    state.devices = list
-  },
-  SET_DEVICE(state, { device }) {
-    state.device = device
+  SET_WORKORDER(state, { workOrder }) {
+    state.workOrder = workOrder
   },
 }
 
 const actions = {
-  getDevices ({ commit, }) {
-    fetchList().then(response => {
-      commit('SET_DEVICE_LIST', {
-        list: response.data.items,
-      })
-    })
-  },
-  getDevice({ commit, }, id) {
-    fetchDevice(id).then(response => {
-      commit('SET_DEVICE', {
-        device: response.data
+  getWorkOrder({ commit, }, id) {
+    fetchWorkOrder(id).then(response => {
+      commit('SET_WORKORDER', {
+        workOrder: response.data
       })
     })
   }
 }
 
 export default new Vuex.Store({
+  modules: {
+    devices,
+  },
   state,
   getters,
   mutations,

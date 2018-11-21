@@ -18,6 +18,7 @@ import ConnectCell from './components/ConnectCell'
 import MaintainCell from './components/MaintainCell'
 import FeedbackCell from './components/FeedbackCell'
 import EvaluateCell from './components/EvaluateCell'
+import { fetchWorkOrder } from '@/api/workorder'
 
 const workOrder = [
     { name: 'number', value: 'BGD-SDABYHH1', },
@@ -43,8 +44,14 @@ export default {
     },
     data() {
         return {
-            workOrder, equipment, connect,
+            workOrder,
+            equipment,
+            connect,
         }
+    },
+    created() {
+        const id = this.$route.params && this.$route.params.id
+        this.$store.dispatch('getWorkOrder', id)
     },
 }
 </script>

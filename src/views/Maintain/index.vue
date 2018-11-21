@@ -43,12 +43,12 @@ export default {
         }
     },
     computed: {
-        ...mapGetters([
-            'getDeviceById',
+        ...mapGetters('devices', [
+            'getItemById',
         ]),
         equipmentData() {
             const id = this.$route.params && this.$route.params.id
-            const data = this.$store.getters.getDeviceById(id)
+            const data = this.getItemById(id)
            
             equipment = equipment.map(item => {
                 item.value = data[item.name]

@@ -2,7 +2,15 @@ import request from '@/utils/request'
 
 export function fetchList() {
     return request({
-        url: '/workorder/list',
-        method: 'get',
+        url: '/workorders/',
+        method: 'GET',
+    })
+}
+
+export function fetchWorkOrder(id) {
+    return request({
+        url: '/workorders/',
+        method: 'GET',
+        params: { id, },
     })
 }

@@ -10,18 +10,24 @@
 
 <script>
 import Item from './Item'    
-import { mapState, mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('devices')
 
 export default {
     name: 'DeviceList',
     computed: mapState({
-        deviceList: state => state.devices
+        deviceList: state => state.list
     }),
     components: {
         Item,
     },
+    methods: {
+        ...mapActions([
+            'getDevices',
+        ]),
+    },
     mounted() {
-        this.$store.dispatch('getDevices')
+        this.getDevices()
     },
 }
 </script>

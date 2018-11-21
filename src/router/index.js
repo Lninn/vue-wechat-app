@@ -69,7 +69,7 @@ export default new Router({
         component: () => import('@/views/WorkOrderList/index'),
     },
     {
-        path: '/workOrderDetail',
+        path: '/workorders/:id',
         name: 'workOrderDetail',
         component: () => import('@/views/WorkOrderInformation/index'),
     },
