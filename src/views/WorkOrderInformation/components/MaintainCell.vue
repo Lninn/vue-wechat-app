@@ -1,8 +1,8 @@
 <template>
     <div>
         <OutputTextarea
-            title="故障描述"
-            text="请输入故障描述请输入故障描述请输入故障描述请输入故障描述请输入故障描述"
+            :title="title"
+            :text="text"
         />
         <UploadImg />
     </div>
@@ -14,6 +14,16 @@ import UploadImg from '@/components/UploadImg/index'
 
 export default {
     name: 'MaintainCell',
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+    },
     components: {
         OutputTextarea, UploadImg,
     },

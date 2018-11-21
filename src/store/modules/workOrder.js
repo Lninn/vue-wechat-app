@@ -1,4 +1,6 @@
 import { fetchWorkOrder, fetchList } from '@/api/workorder'
+import { changeObjects } from '@/utils'
+
 import {
   SET_WORKORDERS_LIST,
   SET_WORKORDER_ITEM,
@@ -9,13 +11,24 @@ const state = {
   list: [],
   ItemState: 'ALL',
   item: {
-    information: null,
-    device: null,
-    connection: null,
+    information: [
+      { name: 'number', value: 'XXX-XXXXXXX', },
+      { name: 'date', value: '0000-00-00', },
+    ],
+    device: [
+      { name: 'name', value: '身份证自助取证机', },
+      { name: 'model', value: 'BY-788928783', },
+      { name: 'address', value: '浙江省杭州市滨江区', },
+      { name: 'company', value: 'XXX 有限公司', },
+    ],
+    connection: [
+      { name: 'name', value: '毕淑敏', },
+      { name: 'phone', value: '14754744414', },
+    ],
     descibe: null,
-    descibeImage: null,
+    descibeImage: [],
     feedback: null,
-    feedbackImage: null,
+    feedbackImage: [],
     evaluate: null,
   },
 }
@@ -68,7 +81,7 @@ const mutations = {
     state.list = list
   },
   [SET_WORKORDER_ITEM] (state, { item, }) {
-    state.item = item
+    changeObjects(state.item, item)
   },
   [SET_ITEMSTATE] (state, value) {
     state.ItemState = value
@@ -97,5 +110,5 @@ export default {
   state,
   actions,
   getters,
-  mutations
+  mutations,
 }

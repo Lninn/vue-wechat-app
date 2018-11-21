@@ -37,3 +37,19 @@ export function toggleClass(elem, className) {
         }
     })
 }
+
+export function changeObjects(originalData, newData) {
+    const keys = Object.keys(originalData)
+    keys.forEach(key => {
+        let tmp = originalData[key]
+        if (Array.isArray(tmp)) {
+            tmp.map(item => {
+                item.value = newData[key][item.name]
+                return item
+            })
+        } else {
+            tmp = newData[key]
+        }
+        
+    })
+}

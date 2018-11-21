@@ -84,9 +84,9 @@ export default {
       device: getDevice(),
       connection: getConnect(),
       descibe: Mock.mock('@cparagraph()'),
-      images1: getImages(3),
+      descibeImage: getImages(3),
       feedback: Mock.mock('@cparagraph()'),
-      images2: getImages(3),
+      feedbackImage: getImages(3),
       evaluate: Mock.mock('@csentence'),
     }
   },
