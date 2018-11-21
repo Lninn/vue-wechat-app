@@ -4,7 +4,12 @@
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd app-input-textarea">
-                <textarea :value="value" :placeholder="placeholder" rows="4" @input="onInput"></textarea>
+                <textarea
+                    :value="value"
+                    :placeholder="placeholder"
+                    rows="4"
+                    @input="onInput"
+                ></textarea>
                 <div class="weui-textarea-counter"><span>{{ wordsCount }}</span>/200</div>
             </div>
         </div>
@@ -13,11 +18,13 @@
 </template>
 
 <script>
+import weui from 'weui.js'
+
 export default {
   name: 'InputTextarea',
   data() {
       return {
-          value: '',
+          value: null,
       }
   },
   computed: {
@@ -26,7 +33,7 @@ export default {
               return this.value.toString().length
           } else {
               return 0
-          }         
+          }
       },
   },
   props: {
@@ -44,7 +51,9 @@ export default {
           if (this.wordsCount > 201) {
               event.target.disabled = true
           }
-          this.value = event.target.value          
+          
+          this.value = event.target.value
+          this.$emit('input', this.value)
       },
   },
 }

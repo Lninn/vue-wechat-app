@@ -104,4 +104,7 @@ export default {
     const { id } = param2Obj(config.url)
     return device()
   },
+  maintainDevice: config => {
+    return { errmsg: 'success', code: 2000, }
+  },
 }

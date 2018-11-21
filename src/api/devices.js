@@ -14,3 +14,11 @@ export function fetchDevice(id) {
         params: { id, },
     })
 }
+
+export function maintainDevice(data) {
+    return request({
+        url: '/maintain/',
+        method: 'POST',
+        data,
+    })
+}

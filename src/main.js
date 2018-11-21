@@ -10,6 +10,8 @@ import './style/app.less'
 
 import './mock'
 
+import 'weui'
+
 import router from './router'
 import store from './store'
 

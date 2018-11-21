@@ -61,6 +61,8 @@ export default {
             }
             return src
         }))
+
+        this.$emit('upload', this.urls)
     },
     caleCount(num) {
         if (num + this.count > 3) {
@@ -85,6 +87,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-</style>
