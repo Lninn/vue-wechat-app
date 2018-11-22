@@ -12,24 +12,24 @@ const state = {
   ItemState: 'ALL',
   item: {
     information: [
-      { name: 'number', value: 'XXX-XXXXXXX', },
-      { name: 'date', value: '0000-00-00', },
+      { name: 'number', value: '', },
+      { name: 'date', value: '', },
     ],
     device: [
-      { name: 'name', value: '身份证自助取证机', },
-      { name: 'model', value: 'BY-788928783', },
-      { name: 'address', value: '浙江省杭州市滨江区', },
-      { name: 'company', value: 'XXX 有限公司', },
+      { name: 'name', value: '', },
+      { name: 'model', value: '', },
+      { name: 'address', value: '', },
+      { name: 'company', value: '', },
     ],
     connection: [
-      { name: 'name', value: '毕淑敏', },
-      { name: 'phone', value: '14754744414', },
+      { name: 'name', value: '', },
+      { name: 'phone', value: '', },
     ],
-    descibe: null,
+    descibe: '',
     descibeImage: [],
-    feedback: null,
+    feedback: '',
     feedbackImage: [],
-    evaluate: null,
+    evaluate: '',
   },
 }
 

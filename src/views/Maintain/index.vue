@@ -55,7 +55,6 @@ export default {
         ...mapGetters([
             'getItemById',
             'validForm',
-            'getPostData',
         ]),
         equipmentData() {
             const id = this.$route.params && this.$route.params.id
@@ -71,10 +70,13 @@ export default {
     },
     methods: {
         submitForm(){
-            const self = this
-            this.submit(function() {
+            if (!this.validForm) {
+                return
+            }
+            
+            this.submit().then(() => {
                 weui.toast('提交成功', 1500)
-                self.$router.push('/')
+                this.$router.push('/')
             })
         },
         ...mapMutations([

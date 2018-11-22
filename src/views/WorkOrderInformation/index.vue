@@ -12,9 +12,17 @@
         <MaintainCell
             title="故障描述"
             :text="descibe"
+            :imageList="descibeImage"
         />
-        <FeedbackCell />
-        <EvaluateCell />
+        <FeedbackCell
+            title="反馈内容"
+            :text="feedback"
+            :imageList="feedbackImage"
+        />
+        <EvaluateCell
+            title="评价"
+            :text="evaluate"
+        />
     </Layout>
 </template>
 
@@ -27,10 +35,8 @@ import MaintainCell from './components/MaintainCell'
 import FeedbackCell from './components/FeedbackCell'
 import EvaluateCell from './components/EvaluateCell'
 
-import { fetchWorkOrder } from '@/api/workorder'
 import { createNamespacedHelpers } from 'vuex'
 const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpers('workOrder')
-
 
 export default {
     name: 'WorkOrderInformation',
@@ -43,6 +49,10 @@ export default {
             'device',
             'connection',
             'descibe',
+            'feedback',
+            'evaluate',
+            'descibeImage',
+            'feedbackImage',
         ]),
     },
     created() {

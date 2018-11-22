@@ -62,10 +62,12 @@ const getters = {
         data.append('phone', connection.phone)
         data.append('descibe', detail)
         data.append('remark', remark)
-        for (let index = 0, len = files.length; index < len; index++) {
-            data.append('file-image' + index, files)
+        if (files && files.length) {
+            for (let index = 0, len = files.length; index < len; index++) {
+                data.append('file-image' + index, files)
+            }
         }
-
+        
         return data
     },
 }
@@ -106,16 +108,16 @@ const actions = {
             })
         })
     },
-    submit({ getters, }, callback) {
-        if (!getters.validForm) {
-            return
-        }
-
-        maintainDevice(getters.getPostData).then(response => {
-            const data = response.data
-            if (data.code === 2000) {
-                callback()
-            }
+    submit({ getters, }) {
+        return new Promise((resolve, reject) => {
+            maintainDevice(getters.getPostData).then(response => {
+                const data = response.data
+                if (data.code === 2000) {
+                    resolve()
+                } else {
+                    reject()
+                }
+            })
         })
     }
 }

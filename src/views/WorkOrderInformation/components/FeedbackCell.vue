@@ -1,21 +1,37 @@
 <template>
     <div>
         <OutputTextarea
-            title="反馈信息"
-            text="所需工具所需工具所需工具所需工具所需工具所需工具所需工具所需工具所需工具"
+            :title="title"
+            :text="text"
         />
-        <UploadImg />
+        <PreviewImage
+            title="图片预览"
+            :list="imageList"
+        />
     </div>
 </template>
 
 <script>
 import OutputTextarea from '@/components/AppTextarea/OutputTextarea'
-import UploadImg from '@/components/UploadImg/index'
+import PreviewImage from '@/components/PreviewImage/index'
 
 export default {
     name: 'FeedbackCell',
     components: {
-        OutputTextarea, UploadImg,
+        OutputTextarea, PreviewImage,
+    },
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+        imageList: {
+            type: Array,
+        },
     },
 }
 </script>

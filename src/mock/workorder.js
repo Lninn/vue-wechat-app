@@ -16,7 +16,7 @@ for (let i = 0; i < count; i++) {
     deviceNumber: Mock.mock('@id'),
     'state|1': ['INITIALIZED', 'RECEIVED', 'PROCESSING', 'COMPLETED',],
     date: Mock.mock('@datetime()'),
-    image: [image_uri + 'f960ca7d-08fc-4.png', ],
+    image: Random.dataImage('400x550', 'Hello Mock.js!'),
   }))
 }
 
@@ -50,7 +50,7 @@ const getImages = function(num) {
   for (let index = 0; index < num; index++) {
     data.push({
       id: Mock.mock('@id()'),
-      path: Random.dataImage('1125x1467', 'Hello Mock.js!'),
+      path: Random.dataImage('400x550', 'Hello Mock.js!'),
     })
   }
 
@@ -84,9 +84,9 @@ export default {
       device: getDevice(),
       connection: getConnect(),
       descibe: Mock.mock('@cparagraph()'),
-      descibeImage: getImages(3),
+      descibeImage: getImages(4),
       feedback: Mock.mock('@cparagraph()'),
-      feedbackImage: getImages(3),
+      feedbackImage: getImages(4),
       evaluate: Mock.mock('@csentence'),
     }
   },

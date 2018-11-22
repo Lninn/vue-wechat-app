@@ -43,13 +43,16 @@ export function changeObjects(originalData, newData) {
     keys.forEach(key => {
         let tmp = originalData[key]
         if (Array.isArray(tmp)) {
-            tmp.map(item => {
-                item.value = newData[key][item.name]
-                return item
-            })
+            if (tmp.length !== 0) {
+                tmp.map(item => {
+                    item.value = newData[key][item.name]
+                    return item
+                })
+            } else {
+                originalData[key] = newData[key]
+            }
         } else {
-            tmp = newData[key]
+            originalData[key] = newData[key]
         }
-        
     })
 }

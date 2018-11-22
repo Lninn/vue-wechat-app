@@ -30,7 +30,7 @@
                         </div>
                         <div class="weui-cell btn-area">
                             <div class="weui-cell__hd register-btn">
-                                <SmallButton text="注册新用户" />
+                                <SmallButton text="注册新用户" @onClick="onRegister" />
                                 <SmallButton text="忘记密码?" />
                             </div>
                         </div>
@@ -51,6 +51,11 @@ export default {
     name: 'Login',
     components: {
         Header, HeaderBack, LargeButton, SmallButton, 
+    },
+    methods: {
+        onRegister() {
+            this.$router.push('/register')
+        },
     },
 }
 </script>

@@ -3,7 +3,7 @@
         <div class="weui-panel__bd">
             <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                 <div class="equipment-image">
-                    <img class="weui-media-box__thumb" src="http://back.auto888.com.cn/upload/titleimg/9aea47db-46c8-4.png" alt="">
+                    <img class="weui-media-box__thumb" :src="device.img" />
                 </div>
                 <div class="weui-media-box__bd">
                     <h4 class="weui-media-box__title">{{ device.name }}</h4>

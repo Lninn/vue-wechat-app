@@ -1,6 +1,9 @@
 <template>
     <div>
-        <OutputTextarea title="客户评价" text="客户评价客户评价客户评价客户评价客户评价客户评价客户评价客户评价" />
+        <OutputTextarea
+            :title="title"
+            :text="text"
+        />
     </div>
 </template>
 
@@ -11,6 +14,16 @@ export default {
     name: 'EvaluateCell',
     components: {
         OutputTextarea,
+    },
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
     },
 }
 </script>

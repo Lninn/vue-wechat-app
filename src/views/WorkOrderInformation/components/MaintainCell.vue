@@ -4,13 +4,16 @@
             :title="title"
             :text="text"
         />
-        <UploadImg />
+        <PreviewImage
+            title="图片预览"
+            :list="imageList"
+        />
     </div>
 </template>
 
 <script>
 import OutputTextarea from '@/components/AppTextarea/OutputTextarea'
-import UploadImg from '@/components/UploadImg/index'
+import PreviewImage from '@/components/PreviewImage/index'
 
 export default {
     name: 'MaintainCell',
@@ -23,9 +26,12 @@ export default {
             type: String,
             required: true,
         },
+        imageList: {
+            type: Array,
+        },
     },
     components: {
-        OutputTextarea, UploadImg,
+        OutputTextarea, PreviewImage,
     },
 }
 </script>

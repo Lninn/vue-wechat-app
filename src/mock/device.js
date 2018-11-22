@@ -18,7 +18,7 @@ for (let i = 0; i < count; i++) {
     date: Mock.mock('@datetime()'),
     company: Mock.mock('@csentence(5)'),
     describe: baseContent,
-    'img|1': [image_uri + 'f960ca7d-08fc-4.png', image_uri + '9aea47db-46c8-4.png'],
+    img: Random.dataImage('400x550', 'Hello Mock.js!'),
   }))
 }
 

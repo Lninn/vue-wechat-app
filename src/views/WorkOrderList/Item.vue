@@ -22,7 +22,7 @@
                     </p>
                 </div>
                 <div class="weui-media-box__hd product-img">
-                    <img class="weui-media-box__thumb" src="@/assets/quzhengji.jpg" alt="">
+                    <img class="weui-media-box__thumb" :src="workorder.image" alt="">
                 </div>
             </a>
         </div>

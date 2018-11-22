@@ -1,7 +1,7 @@
 <<template>
     <div class="page">
         <Header>
-            <HeaderBack name="注册" />
+            <HeaderBack title="注册" />
         </Header>
         <div class="page__bd" style="margin-top: 3rem;">
             <RegisterForm />
@@ -19,12 +19,5 @@ export default {
     components: {
         Header, HeaderBack, RegisterForm
     },
-}    
-</script>
-
-<style lang="less" scoped>
-.iconfont {
-    font-size: 1.2em;
-    color: #67baff;
 }
-</style>
+</script>

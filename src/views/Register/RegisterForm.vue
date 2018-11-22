@@ -36,13 +36,21 @@ export default {
     data() {
         return {
             nextStep: false,
+            formData: {
+                name: null,
+                username: null,
+                password1: null,
+                password2: null,
+                phone: null,
+                address: null,
+            },
         }
     },
     methods: {
         onClick() {
             this.nextStep = true
-        }
-    } 
+        },
+    },
 }
 </script>
 
