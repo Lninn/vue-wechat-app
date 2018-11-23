@@ -72,14 +72,12 @@ export default {
 
     const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
 
-    return {
-      total: mockList.length,
-      items: pageList
-    }
+    return { ok: true, text: JSON.stringify({ total: mockList.length, items: pageList }) }
   },
   getWorkOrder: (config) => {
     const { id } = param2Obj(config.url)
-    return {
+    
+    const responseJSON = {
       information: getInformation(),
       device: getDevice(),
       connection: getConnect(),
@@ -89,5 +87,7 @@ export default {
       feedbackImage: getImages(4),
       evaluate: Mock.mock('@csentence'),
     }
+
+    return { ok: true, text: JSON.stringify(responseJSON), }
   },
 }

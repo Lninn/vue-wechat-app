@@ -4,7 +4,7 @@
             <div class="weui-cell__bd">
                 <p>登陆名称</p>
             </div>
-            <div class="weui-cell__ft">{{ user.name }}</div>
+            <div class="weui-cell__ft">{{ user.username }}</div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__bd">
@@ -16,7 +16,7 @@
             <div class="weui-cell__bd">
                 <p>属于公司</p>
             </div>
-            <div class="weui-cell__ft">{{ user.organize }}</div>
+            <div class="weui-cell__ft">{{ user.organize || '未绑定' }}</div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__bd">

@@ -13,6 +13,7 @@
 import Header from '@/components/Header/index'
 import HeaderBack from '@/components/Header/HeaderBack'
 import RegisterForm from './RegisterForm'
+import weui from 'weui.js'
 
 export default {
     name: 'Register',

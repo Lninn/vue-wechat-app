@@ -7,31 +7,17 @@
             <div class="weui-flex">
                 <div class="weui-flex__item">
                     <div class="weui-cells weui-cells_form">
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd"><label class="weui-label">
-                                <p><i class="iconfont">&#xe619;</i></p>
-                            </label></div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="text" name="UserName" placeholder="请输入用户名">
-                            </div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd"><label class="weui-label">
-                                <p><i class="iconfont">&#xe62f;</i></p>
-                            </label></div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="password" name="Password" placeholder="请输入密码">
-                            </div>
-                        </div>
+                        <AppInput icon="" type="text" placeholder="请输入用户名" v-model="loginForm.username" />
+                        <AppInput icon="" type="password" placeholder="请输入密码" v-model="loginForm.password" />
                         <div class="weui-cell">
                             <div class="weui-cell__bd">
-                                <LargeButton text="登录"/>
+                                <LargeButton text="登录" @onClick="onLogin"/>
                             </div>
                         </div>
                         <div class="weui-cell btn-area">
                             <div class="weui-cell__hd register-btn">
                                 <SmallButton text="注册新用户" @onClick="onRegister" />
-                                <SmallButton text="忘记密码?" />
+                                <SmallButton text="忘记密码 ?" />
                             </div>
                         </div>
                     </div>
@@ -46,25 +32,62 @@ import HeaderBack from '@/components/Header/HeaderBack'
 import Header from '@/components/Header/index'
 import SmallButton from '@/components/AppButton/SmallButton'
 import LargeButton from '@/components/AppButton/LargeButton'
+import AppInput from '@/components/AppInput'
+
+import weui from 'weui.js'
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('user')
 
 export default {
     name: 'Login',
     components: {
-        Header, HeaderBack, LargeButton, SmallButton, 
+        Header, HeaderBack, LargeButton, SmallButton, AppInput,
+    },
+    data() {
+        return {
+            loginForm: {
+                username: null,
+                password: null,
+            },
+        }
+    },
+    created() {
+        this.logout()
     },
     methods: {
-        onRegister() {
-            this.$router.push('/register')
+        ...mapActions(['authenticate', 'logout', 'onRegister',]),
+        onLogin() {
+            if (!this.validForm()) {
+                return
+            }
+            this.authenticate(this.loginForm)
+        },
+        validForm() {
+            const { username, password, } = this.loginForm
+            let tips, pass = false
+
+            if (!username) {
+                tips = '请输入用户名'
+            } else if (!password) {
+                tips = '请输入密码'
+            } else {
+                pass = true
+            }
+
+            if (pass === false) {
+                weui.topTips(tips, {
+                    duration: 1500,
+                })
+            }
+
+            return pass
         },
     },
 }
 </script>
 
 <style lang="less" scoped>
-.iconfont {
-    font-size: 1.2em;
-    color: #000;
-}
 .weui-label {
     width: 50px;
 }

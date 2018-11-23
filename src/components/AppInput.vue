@@ -6,7 +6,13 @@
             </label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" :type="type" :placeholder="placeholder" />
+            <input
+                class="weui-input"
+                :type="type"
+                :value="value"
+                :placeholder="placeholder"
+                @input="$emit('input', $event.target.value)"
+            />
         </div>
     </div>
 </template>
@@ -25,6 +31,9 @@ export default {
         },
         placeholder: {
             type: String,
+        },
+        value: {
+            required: false,
         },
     },
 }

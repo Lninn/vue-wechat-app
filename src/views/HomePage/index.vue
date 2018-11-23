@@ -3,7 +3,7 @@
         <slot slot="header">
             <HeaderBack title="我的" :showBtn="false" />
         </slot>
-        <Panel />
+        <Panel :user="user" />
         <Person :user="user" />
     </Layout>
 </template>
@@ -14,7 +14,9 @@ import List from './components/List'
 import Panel from './components/Panel'
 import Person from './components/Person'
 import HeaderBack from '@/components/Header/HeaderBack'
-import { mapState, mapActions, } from 'vuex'
+
+import { createNamespacedHelpers, } from 'vuex'
+const { mapState, } = createNamespacedHelpers('user')
 
 export default {
     name: 'HomePage',
@@ -25,14 +27,6 @@ export default {
         ...mapState([
             'user',
         ]),
-    },
-    methods: {
-        ...mapActions([
-            'getProfile',
-        ]),
-    },
-    created() {
-        this.getProfile()
     },
 }
 </script>

@@ -12,7 +12,7 @@ import './mock'
 
 import 'weui'
 
-import router from './router'
+import { router } from './router'
 import store from './store'
 
 Vue.config.productionTip = true

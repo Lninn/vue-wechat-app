@@ -95,16 +95,16 @@ const mutations = {
 
 const actions = {
     getDevices ({ commit, }) {
-        fetchList().then(response => {
+        fetchList().then(data => {
             commit('SET_DEVICES_LIST', {
-                list: response.data.items,
+                list: data.items,
             })
         })
     },
     getDevice({ commit, }, id) {
-        fetchDevice(id).then(response => {
+        fetchDevice(id).then(device => {
             commit('SET_DEVICE_ITEM', {
-                item: response.data,
+                item: device,
             })
         })
     },
@@ -127,5 +127,5 @@ export default {
     state,
     actions,
     getters,
-    mutations
+    mutations,
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="weui-cell">
+    <div class="weui-cell wx-header-back">
         <div class="weui-cell__hd">
             <a v-if="showBtn" href="javascript:;" @click="back">
                 <i class="iconfont"></i>返回
@@ -44,11 +44,12 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .text-align {
     padding-right: 16%;
 }
-.weui-cell {
+
+.wx-header-back {
     padding: 10px 15px;
     position: relative;
     display: -webkit-box;
@@ -57,6 +58,7 @@ export default {
     -webkit-box-align: center;
     -webkit-align-items: center;
     align-items: center;
+    height: 25px;
     .weui-cell__hd {
         a {
             position: relative;
@@ -80,7 +82,7 @@ export default {
     .weui-cell__bd {
         margin-top: 0;
         background-color: #67baff;
-        text-align: center;        
+        text-align: center;
     }
 }
 </style>

@@ -17,7 +17,7 @@ export default {
         text-align: right;
         .iconfont {
             color: aliceblue;
-            font-size: 20px;
+            font-size: 1em;
         }
     }
 }

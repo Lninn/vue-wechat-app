@@ -20,6 +20,7 @@ export default {
     overflow: hidden;
     z-index: 999;
     color: #fff;
+    font-size: 16px;
     background-color: #67baff;
 }
 </style>

@@ -20,6 +20,8 @@ Mock.setup({
 
 // 用户相关
 Mock.mock(/\/users\/profile/, 'get', userAPI.getProfile)
+Mock.mock(/\/users\/register/, 'post', userAPI.register)
+Mock.mock(/\/users\/login/, 'post', userAPI.login)
 
 // 设备相关
 Mock.mock(/\/devices\/$/, 'get', equipmentAPI.getList)

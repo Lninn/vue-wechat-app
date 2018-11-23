@@ -7,8 +7,8 @@
                     <img class="weui-media-box__thumb" src="@/assets/touxiang.jpg" alt="">
                 </div>
                 <div class="weui-media-box__bd">
-                    <h4 class="weui-media-box__title">毕淑敏</h4>
-                    <p class="weui-media-box__desc">上次登录时间: 2018年10月21日</p>
+                    <h4 class="weui-media-box__title">{{ user.name }}</h4>
+                    <p class="weui-media-box__desc">上次登录时间: {{ (new Date(user.lastTime)).toLocaleDateString() }}</p>
                 </div>
             </a>
         </div>
@@ -19,6 +19,12 @@
 <script>
 export default {
     name: 'Panel',
+     props: {
+        user: {
+            type: Object,
+            required: true,
+        },
+    },
 }
 </script>
 

@@ -94,15 +94,14 @@ export default {
     }
 
     const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
-
-    return {
+    return { ok: true, text: JSON.stringify({
       total: mockList.length,
       items: pageList,
-    }
+    }), }
   },
   getDevice: (config) => {
     const { id } = param2Obj(config.url)
-    return device()
+    return { ok: true, text: JSON.stringify(device()), }
   },
   maintainDevice: config => {
     return { errmsg: 'success', code: 2000, }

@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <div slot="header" class="weui-flex">
-            <Avator />
+            <Avator :loginName="loginName" />
             <Scan />
         </div>
         <DeviceList />
@@ -14,10 +14,19 @@ import Avator from './components/Avator.vue'
 import Scan from './components/Scan.vue'
 import DeviceList from '../DeviceList/index' 
 
+import { createNamespacedHelpers } from 'vuex'
+const { mapGetters, } = createNamespacedHelpers('user')
+
+
 export default {
     name: 'Home',
     components: {
         Avator, Scan, DeviceList, Layout,
+    },
+    computed: {
+        ...mapGetters([
+            'loginName',
+        ]),
     },
 }
 </script>

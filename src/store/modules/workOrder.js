@@ -90,16 +90,16 @@ const mutations = {
 
 const actions = {
   getWorkOrders ({ commit, }) {
-      fetchList().then(response => {
-          commit(SET_WORKORDERS_LIST, {
-              list: response.data.items,
-          })
+      fetchList().then(data => {
+        commit(SET_WORKORDERS_LIST, {
+          list: data.items,
+        })
       })
   },
   getWorkOrder({ commit, }, id) {
-    fetchWorkOrder(id).then(response => {
+    fetchWorkOrder(id).then(workOrder => {
       commit(SET_WORKORDER_ITEM, {
-        item: response.data,
+        item: workOrder,
       })
     })
   },
