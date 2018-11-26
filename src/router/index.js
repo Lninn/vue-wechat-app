@@ -37,6 +37,11 @@ export const router = new Router({
           component: () => import('@/views/HomePage/index'),
       },
       {
+            path: '/user/profile',
+            name: 'profile',
+            component: () => import('@/views/HomePage/components/Profile'),
+      },
+      {
           path: '/workOrder',
           name: 'workOrder',
           component: () => import('@/views/WorkOrderList/index'),

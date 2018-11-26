@@ -7,18 +7,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Avator',
-    props: {
-        loginName: {
-            type: String,
-            default: '匿名',
-        },
-    },
-}
-</script>
-
 <style lang="less">
 .weui-flex__item {
     flex: 1;
@@ -35,3 +23,15 @@ export default {
     }
 }
 </style>
+
+<script>
+export default {
+    name: 'Avator',
+    props: {
+        loginName: {
+            type: String,
+            default: '匿名',
+        },
+    },
+}
+</script>

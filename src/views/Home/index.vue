@@ -8,6 +8,14 @@
     </Layout>
 </template>
 
+<style lang="less">
+.weui-flex {
+    display: flex;
+    padding: 10px 15px;
+    align-items: center;
+}
+</style>
+
 <script>
 import Layout from '@/views/Layout/index'
 import Avator from './components/Avator.vue'
@@ -16,7 +24,6 @@ import DeviceList from '../DeviceList/index'
 
 import { createNamespacedHelpers } from 'vuex'
 const { mapGetters, } = createNamespacedHelpers('user')
-
 
 export default {
     name: 'Home',
@@ -30,12 +37,3 @@ export default {
     },
 }
 </script>
-
-<style lang="less">
-.weui-flex {
-    display: flex;
-    padding: 10px 15px;
-    align-items: center;
-}
-</style>
-
