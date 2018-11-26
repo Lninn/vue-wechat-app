@@ -12,13 +12,9 @@
                         <span>上报时间: </span>
                         <span>{{ workorder.date }}</span>
                     </p>
-                    <!-- <p class="weui-media-box__desc wx-fault-description">
-                        <span>故障描述: </span>
-                        <span>{{ workorder.describe }}</span>
-                    </p> -->
                     <p class="weui-media-box__desc">
                         <span>状态: </span>
-                        <span>{{ workorder.state }}</span>
+                        <span>{{ getStateText(workorder.state) }}</span>
                     </p>
                 </div>
                 <div class="weui-media-box__hd product-img">
@@ -38,18 +34,6 @@
         </div>
     </div>
 </template>
-
-<script>
-export default {
-    name: 'Item',
-    props: {
-        workorder: {
-            type: Object,
-            required: true,
-        },
-    },
-}
-</script>
 
 <style lang="less" scoped>
 .weui-panel__bd {
@@ -104,3 +88,32 @@ export default {
     font-size: 1.2em;
 }
 </style>
+
+<script>
+export default {
+    name: 'Item',
+    props: {
+        workorder: {
+            type: Object,
+            required: true,
+        },
+    },
+    methods: {
+        getStateText(state) {
+            // user type = 2
+            switch (state) {
+                case 'INITIALIZED':
+                    return '等待接收'
+                case 'RECEIVED':
+                case 'PROCESSING':
+                    return '处理中'              
+                case 'COMPLETED':
+                    return '完成'
+                default:
+                    return '订单异常'
+            }
+        },
+    },
+}
+</script>
+

@@ -1,11 +1,13 @@
 # frontend
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
@@ -27,3 +29,44 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Pages
+
+- Home
+    - DeviceList
+    - Maintain
+- WorkOrder
+    - List
+    - Item
+- HomePage
+    - Home
+    - Profile
+
+### API
+
+- account
+  - /users/login
+  - /users/register
+  - /users/profile
+- device
+  - /devices
+  - /devices/id
+  - /devices/maintain/id
+- workorder
+  - /workorders
+  - /workorders/id
+
+### WorkOrder Detail
+
+#### 工单
+
+    创建 被接收 反馈 结束
+
+#### 维护人员
+
+    确认接收、反馈、完成
+
+#### 普通客户
+
+    创建 评价

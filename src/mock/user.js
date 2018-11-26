@@ -35,6 +35,7 @@ export default {
     // save new user
     newUser.id = Mock.mock('@guid')
     newUser['token'] = 'fake-jwt-token'
+    newUser['type'] = 2
     newUser['lastTime'] = new Date(),
     users.push(newUser)
     localStorage.setItem('users', JSON.stringify(users))
@@ -54,6 +55,7 @@ export default {
         let responseJson = {
             id: user.id,
             username: user.username,
+            type: user.type,
             name: user.name,
             phone: user.phone,
             address: user.address,

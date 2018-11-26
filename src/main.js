@@ -17,6 +17,13 @@ import store from './store'
 
 Vue.config.productionTip = true
 
+// 全局过滤器
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
 new Vue({
   render: h => h(App),
   router,
