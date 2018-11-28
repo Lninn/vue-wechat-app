@@ -6,7 +6,7 @@
             <div class="weui-cells select">
                 <div class="weui-cell weui-cell_select">
                     <div class="weui-cell__bd">
-                        <select class="weui-select" :value="currentState" @input="onInput">
+                        <select class="weui-select" :value="currentState" v-on="listeners">
                             <option selected="" value="ALL">工单列表</option>
                             <option value="WAITING">等待处理</option>
                             <option value="PROCESSING">正在处理</option>
@@ -29,9 +29,14 @@ export default {
             default: 'ALL',
         },
     },
-    methods: {
-        onInput($event) {
-            this.$emit('changeState', $event.target.value)
+    computed: {
+        listeners() {
+            return {
+                ...this.$listeners,
+                change: event => {
+                    this.$emit('changeState', event.target.value)
+                },
+            }
         },
     },
 }

@@ -6,9 +6,9 @@
             <div class="weui-cell__bd app-input-textarea">
                 <textarea
                     :value="value"
-                    :placeholder="placeholder"
+                    v-bind="$attrs"
                     rows="4"
-                    @input="onInput"
+                    v-on="listeners"
                 ></textarea>
                 <div class="weui-textarea-counter"><span>{{ wordsCount }}</span>/200</div>
             </div>
@@ -35,6 +35,7 @@
 <script>
 export default {
   name: 'AppInputTextarea',
+  inheritAttrs: false,
   data() {
       return {
           value: null,
@@ -48,25 +49,19 @@ export default {
               return 0
           }
       },
+      listeners() {
+            return {
+                ...this.$listeners,
+                input: event => {
+                    this.$emit('input', event.target.value)
+                },
+            }
+        },
   },
   props: {
       title: {
           type: String,
           required: true,
-      },
-      placeholder: {
-          type: String,
-          required: true,
-      },
-  },
-  methods: {
-      onInput(event) {
-          if (this.wordsCount > 201) {
-              event.target.disabled = true
-          }
-          
-          this.value = event.target.value
-          this.$emit('input', this.value)
       },
   },
 }

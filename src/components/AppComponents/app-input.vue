@@ -8,10 +8,9 @@
         <div class="weui-cell__bd">
             <input
                 class="weui-input"
-                :type="type"
+                v-bind="$attrs"
                 :value="value"
-                :placeholder="placeholder"
-                @input="$emit('input', $event.target.value)"
+                v-on="listeners"
             />
         </div>
     </div>
@@ -20,20 +19,24 @@
 <script>
 export default {
     name: 'AppInput',
+    inheritAttrs: false,
     props: {
         icon: {
             type: String,
             required: true,
         },
-        type: {
-            type: String,
-            default: 'text',
-        },
-        placeholder: {
-            type: String,
-        },
         value: {
             required: false,
+        },
+    },
+    computed: {
+        listeners() {
+            return {
+                ...this.$listeners,
+                input: event => {
+                    this.$emit('input', event.target.value)
+                },
+            }
         },
     },
 }
