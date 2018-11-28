@@ -7,7 +7,7 @@
         <Connection
             @onConnect="SET_FORMDATA_CONNECT"
         />
-        <InputTextarea
+        <AppInputTextarea
             title="故障描述"
             placeholder="请输入故障描述"
             @input="SET_FORMDATA_DETAIL"
@@ -15,12 +15,12 @@
         <UploadImg
             @upload="SET_FORMDATA_FILES"
         />
-        <InputTextarea
+        <AppInputTextarea
             title="备注"
             placeholder="请输入备注(可选)"
             @input="SET_FORMDATA_REMARK"
         />
-        <LargeButton
+        <AppLargeButton
             text="提交"
             @onClick="submitForm"
         />
@@ -31,9 +31,7 @@
 import weui from 'weui.js'
 import Layout from '@/views/Layout/index'
 import Connection from './components/Connection'
-import InputTextarea from '@/components/AppTextarea/InputTextarea'
 import UploadImg from '@/components/UploadImg/index'
-import LargeButton from '@/components/AppButton/LargeButton'
 import EquipmentCell from '../WorkOrderInformation/components/EquipmentCell'
 
 import { createNamespacedHelpers } from 'vuex'
@@ -49,7 +47,7 @@ let equipment  = [
 export default {
     name: 'Maintain',
     components: {
-        Layout, Connection, InputTextarea, UploadImg, LargeButton, EquipmentCell,
+        Layout, Connection, UploadImg, EquipmentCell,
     },
     computed: {
         ...mapGetters([

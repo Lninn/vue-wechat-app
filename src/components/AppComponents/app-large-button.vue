@@ -8,9 +8,15 @@
     </div>
 </template>
 
+<style lang="less">
+.app-button {
+    padding: 10px 15px;
+}
+</style>
+
 <script>
 export default {
-    name: 'LargeButton',
+    name: 'AppLargeButton',
     props: {
         text: {
             type: String,
@@ -25,8 +31,3 @@ export default {
 }
 </script>
 
-<style lang="less">
-    .app-button {
-        padding: 10px 15px;
-    }
-</style>

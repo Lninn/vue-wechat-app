@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <slot slot="header">
-            <HeaderBack title="资料" />
+            <AppBackHeader title="资料" />
         </slot>
         <Panel :user="user" />
         <div class="weui-cells">
@@ -38,7 +38,6 @@
 <script>
 import Layout from '@/views/Layout/index'
 import Panel from './Panel'
-import HeaderBack from '@/components/Header/HeaderBack'
 
 import { createNamespacedHelpers, } from 'vuex'
 const { mapState, } = createNamespacedHelpers('user')
@@ -51,7 +50,7 @@ export default {
         ]),
     },
     components: {
-        Layout, Panel, HeaderBack,
+        Layout, Panel,
     },
 }
 </script>

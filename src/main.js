@@ -1,18 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
+import { router } from './router'
 
 /* 全局样式 */
 import 'normalize.css'
+import 'weui'
 import 'weui/dist/style/weui.min.css'
 import 'swiper/dist/css/swiper.min.css'
-import './style/icon.less'
-import './style/app.less'
+import './style/main.less'
 
 import './mock'
 
-import 'weui'
-
-import { router } from './router'
 import store from './store'
 
 Vue.config.productionTip = true
@@ -23,6 +21,9 @@ Vue.filter('capitalize', function (value) {
   value = value.toString()
   return value.charAt(0).toUpperCase() + value.slice(1)
 })
+
+// globally components
+import './components'
 
 new Vue({
   render: h => h(App),

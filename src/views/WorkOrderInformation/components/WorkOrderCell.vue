@@ -2,8 +2,13 @@
     <AppImgTextCells :data="filterData" :style="{marginTop: '3rem'}" />  
 </template>
 
+<style lang="less" scoped>
+span {
+    margin-left: 5px;
+}
+</style>
+
 <script>
-import AppImgTextCells from '@/components/AppImgTextCells/index'
 import { combinaArray } from '@/utils'
 
 const cellData = [
@@ -13,9 +18,6 @@ const cellData = [
 
 export default {
     name: 'WorkOrderCell',
-    components: {
-        AppImgTextCells,
-    },
     data() {
         return {
             name: '工单信息',
@@ -36,9 +38,3 @@ export default {
     }
 }
 </script>
-
-<style lang="less" scoped>
-span {
-    margin-left: 5px;
-}
-</style>

@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'PreviewImage',
+  name: 'AppPreviewImage',
   props: {
     title: {
       type: String,

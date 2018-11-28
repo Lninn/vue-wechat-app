@@ -16,8 +16,8 @@
                 <div class="weui-cell">
                     <div class="weui-cell__hd"></div>
                     <div class="weui-cell__bd">
-                        <LargeButton v-if="!nextStep" @onClick="onNextStep" text="下一步" />
-                        <LargeButton v-else @onClick="onRegister" text="注册" />
+                        <AppLargeButton v-if="!nextStep" @onClick="onNextStep" text="下一步" />
+                        <AppLargeButton v-else @onClick="onRegister" text="注册" />
                     </div>
                 </div>
             </div>
@@ -29,17 +29,11 @@
 import weui from 'weui.js'
 import { validPassword, validPhone, } from '@/utils/validate'
 
-import LargeButton from '@/components/AppButton/LargeButton'
-import AppInput from '@/components/AppInput'
-
 import { createNamespacedHelpers } from 'vuex'
 const { mapActions, } = createNamespacedHelpers('user')
 
 export default {
     name: 'RegisterForm',
-    components: {
-        LargeButton, AppInput,
-    },
     data() {
         return {
             nextStep: false,

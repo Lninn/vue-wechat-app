@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import AppImgTextCells from '@/components/AppImgTextCells/index'
 import { combinaArray } from '@/utils'
 
 const cellData = [
@@ -13,9 +12,6 @@ const cellData = [
 
 export default {
     name: 'ConnectCell',
-    components: {
-        AppImgTextCells,
-    },
     data() {
         return {
             name: '联系信息',

@@ -1,10 +1,10 @@
 <template>
     <div>
-        <OutputTextarea
+        <AppOutputTextarea
             :title="title"
             :text="text"
         />
-        <PreviewImage
+        <AppPreviewImage
             title="图片预览"
             :list="imageList"
         />
@@ -12,9 +12,6 @@
 </template>
 
 <script>
-import OutputTextarea from '@/components/AppTextarea/OutputTextarea'
-import PreviewImage from '@/components/PreviewImage/index'
-
 export default {
     name: 'MaintainCell',
     props: {
@@ -29,9 +26,6 @@ export default {
         imageList: {
             type: Array,
         },
-    },
-    components: {
-        OutputTextarea, PreviewImage,
     },
 }
 </script>

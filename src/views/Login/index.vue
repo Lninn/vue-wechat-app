@@ -1,8 +1,8 @@
 <template>
     <div class="page">
-        <Header>
-            <HeaderBack title="登录" :showBtn="false"></HeaderBack>
-        </Header>
+        <AppHeader>
+            <AppBackHeader title="登录" :showBtn="false" />
+        </AppHeader>
         <div class="page__bd" style="margin-top: 3rem;">
             <div class="weui-flex">
                 <div class="weui-flex__item">
@@ -11,13 +11,13 @@
                         <AppInput icon="" type="password" placeholder="请输入密码" v-model="loginForm.password" />
                         <div class="weui-cell">
                             <div class="weui-cell__bd">
-                                <LargeButton text="登录" @onClick="onLogin"/>
+                                <AppLargeButton text="登录" @onClick="onLogin"/>
                             </div>
                         </div>
                         <div class="weui-cell btn-area">
                             <div class="weui-cell__hd register-btn">
-                                <SmallButton text="注册新用户" @onClick="onRegister" />
-                                <SmallButton text="忘记密码 ?" />
+                                <AppSmallButton text="注册新用户" @onClick="onRegister" />
+                                <AppSmallButton text="忘记密码 ?" />
                             </div>
                         </div>
                     </div>
@@ -28,22 +28,13 @@
 </template>
 
 <script>
-import HeaderBack from '@/components/Header/HeaderBack'
-import Header from '@/components/Header/index'
-import SmallButton from '@/components/AppButton/SmallButton'
-import LargeButton from '@/components/AppButton/LargeButton'
-import AppInput from '@/components/AppInput'
-
 import weui from 'weui.js'
 
 import { createNamespacedHelpers } from 'vuex'
-const { mapState, mapActions } = createNamespacedHelpers('user')
+const { mapActions } = createNamespacedHelpers('user')
 
 export default {
     name: 'Login',
-    components: {
-        Header, HeaderBack, LargeButton, SmallButton, AppInput,
-    },
     data() {
         return {
             loginForm: {

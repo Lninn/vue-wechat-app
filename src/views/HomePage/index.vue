@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <slot slot="header">
-            <HeaderBack title="我的" :showBtn="false" />
+            <AppBackHeader title="我的" :showBtn="false" />
         </slot>
         <Panel :user="user" />
         <List></List>
@@ -10,7 +10,6 @@
 
 <script>
 import Layout from '@/views/Layout/index'
-import HeaderBack from '@/components/Header/HeaderBack'
 import Panel from './components/Panel'
 import List from './components/List'
 
@@ -20,7 +19,7 @@ const { mapState, } = createNamespacedHelpers('user')
 export default {
     name: 'HomePage',
     components: {
-        Layout, HeaderBack, Panel, List,
+        Layout, Panel, List,
     },
     computed: {
         ...mapState([

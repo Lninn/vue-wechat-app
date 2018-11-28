@@ -1,25 +1,18 @@
 <template>
     <div class="page">
-        <Header>
+        <AppHeader>
             <slot name="header" >
-                <HeaderBack :title="title" />
+                <AppBackHeader :title="title" />
             </slot>
-        </Header>
+        </AppHeader>
         <slot></slot>
-        <Footer v-if="!hideFooter" />
+        <AppFooter v-if="!hideFooter" />
     </div>
 </template>
 
 <script>
-import Footer from '@/components/Footer/index' 
-import Header from '@/components/Header/index'
-import HeaderBack from '@/components/Header/HeaderBack'
-
 export default {
     name: 'Layout',
-    components: {
-        Footer, Header, HeaderBack,
-    },
     props: {
         hideFooter: {
             type: Boolean,

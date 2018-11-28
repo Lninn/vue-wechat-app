@@ -25,14 +25,12 @@
 
 <script>
 import Layout from '@/views/Layout/index'
-import HeaderBack from '@/components/Header/HeaderBack'
-import AppSwiper from '@/components/AppSwiper/index' 
 import Explain from './components/Explain'
 import ImgText from './components/ImgText'
 import Parameter from './components/Parameter'
 
 import { createNamespacedHelpers } from 'vuex'
-const { mapState, mapActions, mapGetters } = createNamespacedHelpers('devices')
+const { mapActions, mapGetters } = createNamespacedHelpers('devices')
 import { toggleClass } from '@/utils'
 
 export default {
@@ -50,7 +48,7 @@ export default {
         ]),
     },
     components: {
-        Layout, HeaderBack, AppSwiper, Explain, ImgText, Parameter,
+        Layout, Explain, ImgText, Parameter,
     },
     created() {
         const id = this.$route.params && this.$route.params.id

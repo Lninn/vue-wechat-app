@@ -15,7 +15,6 @@
 
 <script>
 import Layout from '@/views/Layout/index'
-import AppSelect from '@/components/AppSelect'
 import Item from './Item.vue'
 
 import { createNamespacedHelpers } from 'vuex'
@@ -25,7 +24,7 @@ const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpe
 export default {
     name: 'WorkOrderList',
     components: {
-        Layout, AppSelect, Item,
+        Layout, Item,
     },
     computed: {
         ...mapState({

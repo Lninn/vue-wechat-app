@@ -4,9 +4,22 @@
     </div>
 </template>
 
+<style lang="less">
+.app-button-plain {
+    display: inline-block;
+    a {
+        background-color: transparent;
+        border: none;
+        &:after {
+            content: none;
+        }
+    }
+}
+</style>
+
 <script>
 export default {
-    name: 'SmallButton',
+    name: 'AppSmallButton',
     props: {
         text: {
             type: String,
@@ -20,16 +33,3 @@ export default {
     },
 }
 </script>
-
-<style lang="less">
-.app-button-plain {
-    display: inline-block;
-    a {
-        background-color: transparent;
-        border: none;
-        &:after {
-            content: none;
-        }
-    }
-}
-</style>

@@ -14,36 +14,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'HeaderBack',
-    props: {
-        title: {
-            type: String,
-            required: true,
-        },
-        showBtn: {
-            type: Boolean,
-            default: true,
-        },
-    },
-    computed: {
-        textAlign() {
-            if (this.showBtn) {
-                return 'text-align'
-            } else {
-                return ''
-            }
-        }
-    },
-    methods: {
-        back() {
-            this.$router.back()
-        },
-    },
-}
-</script>
-
 <style lang="less">
 .text-align {
     padding-right: 16%;
@@ -86,3 +56,33 @@ export default {
     }
 }
 </style>
+
+<script>
+export default {
+    name: 'AppBackHeader',
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        showBtn: {
+            type: Boolean,
+            default: true,
+        },
+    },
+    computed: {
+        textAlign() {
+            if (this.showBtn) {
+                return 'text-align'
+            } else {
+                return ''
+            }
+        }
+    },
+    methods: {
+        back() {
+            this.$router.back()
+        },
+    },
+}
+</script>

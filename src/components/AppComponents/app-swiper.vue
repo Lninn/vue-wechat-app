@@ -6,7 +6,11 @@
         <div class="swiper-container">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-                <Item v-for="image in imageList" :key="image.id" :image="image" />
+                <template v-for="image in imageList">
+                    <div class="swiper-slide swiper-items" :key="image.id">
+                        <img :id="image.id" :src="image.path" />
+                    </div>
+                </template>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
@@ -22,17 +26,22 @@
 </div>
 </template>
 
+<style lang="less">
+.swiper-container {
+    width: 290px;
+    height: 300px;
+}
 
+.swiper-items img {
+    width: 100%;
+}
+</style>
 
 <script>
 import Swiper from 'swiper'
-import Item from './Item'
 
 export default {
     name: 'AppSwiper',
-    components: {
-        Item,
-    },
     props: {
         imageList: {
             type: Array,
@@ -62,13 +71,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.swiper-container {
-    width: 290px;
-    height: 300px;
-}
-
-.swiper-items img {
-    width: 100%;
-}
-</style>

@@ -17,11 +17,24 @@
   </div>
 </template>
 
-<script>
-import weui from 'weui.js'
+<style lang="less">
+.app-input-textarea {
+    textarea {
+        display: block;
+        border: 0;
+        resize: none;
+        width: 100%;
+        color: inherit;
+        font-size: 1em;
+        line-height: inherit;
+        outline: 0;
+    }
+}
+</style>
 
+<script>
 export default {
-  name: 'InputTextarea',
+  name: 'AppInputTextarea',
   data() {
       return {
           value: null,
@@ -58,18 +71,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less">
-.app-input-textarea {
-    textarea {
-        display: block;
-        border: 0;
-        resize: none;
-        width: 100%;
-        color: inherit;
-        font-size: 1em;
-        line-height: inherit;
-        outline: 0;
-    }
-}
-</style>

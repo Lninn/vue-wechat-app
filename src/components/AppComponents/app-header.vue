@@ -4,12 +4,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Header',
-}
-</script>
-
 <style lang="less">
 .app-header {
     position: fixed;
@@ -24,3 +18,9 @@ export default {
     background-color: #67baff;
 }
 </style>
+
+<script>
+export default {
+    name: 'AppHeader',
+}
+</script>

@@ -17,12 +17,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Footer',
-}
-</script>
-
 <style lang="less">
 .wx-bottom {
     position: fixed !important;
@@ -32,3 +26,9 @@ export default {
     color: #09bb07;
 }
 </style>
+
+<script>
+export default {
+    name: 'AppFooter',
+}
+</script>

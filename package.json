@@ -12,6 +12,7 @@
     "js-cookie": "^2.2.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "lodash": "^4.17.11",
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.1",
     "swiper": "^4.4.2",

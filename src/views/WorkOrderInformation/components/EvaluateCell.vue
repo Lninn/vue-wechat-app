@@ -1,6 +1,6 @@
 <template>
     <div>
-        <OutputTextarea
+        <AppOutputTextarea
             :title="title"
             :text="text"
         />
@@ -8,13 +8,9 @@
 </template>
 
 <script>
-import OutputTextarea from '@/components/AppTextarea/OutputTextarea'
 
 export default {
     name: 'EvaluateCell',
-    components: {
-        OutputTextarea,
-    },
     props: {
         title: {
             type: String,

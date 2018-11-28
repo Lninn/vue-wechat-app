@@ -11,22 +11,6 @@
     </div>    
 </template>
 
-<script>
-export default {
-    name: 'OutputTextarea',
-    props: {
-        title: {
-            type: String,
-            required: true,
-        },
-        text: {
-            type: String,
-            required: true,
-        },
-    },
-}
-</script>
-
 <style lang="less">
 .app-output-textarea {
     p {
@@ -40,3 +24,19 @@ export default {
     }
 }
 </style>
+
+<script>
+export default {
+    name: 'AppOutputTextarea',
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+    },
+}
+</script>
