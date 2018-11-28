@@ -35,7 +35,7 @@ const mutations = {
 }
 
 const actions = {
-    authenticate({ dispatch, commit }, { username, password, }) {
+    authenticate({ commit, }, { username, password, }) {
         login({ username, password, })
             .then(
                 user => {
@@ -50,10 +50,10 @@ const actions = {
                 }
             )
     },
-    logout({ commit, }) {
+    logout() {
         logoutUser()
     },
-    register({ dispatch, commit }, user) {
+    register({ commit, }, user) {
         registerUser(user)
             .then(
                 user => {
@@ -74,7 +74,6 @@ const actions = {
 }
 
 export default {
-    namespaced: true,
     state,
     getters,
     mutations,    
