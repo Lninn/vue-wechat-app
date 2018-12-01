@@ -34,14 +34,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Pages
 
 - Home
-    - DeviceList
-    - Maintain
+  - DeviceList
+  - Maintain
 - WorkOrder
-    - List
-    - Item
+  - List
+  - Item
 - HomePage
-    - Home
-    - Profile
+  - Home
+  - Profile
 
 ### API
 
