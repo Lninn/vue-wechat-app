@@ -13,6 +13,13 @@ export function param2Obj(url) {
     )
 }
 
+export function body2Obj(s) {
+    return s.split('&')
+            .map(_ => _.split('='))
+            .filter(_ => _[1] !== 'null')
+            .reduce((obj, _) => (obj[_[0]] = _[1], obj), {})
+}
+
 export function combinaArray(originalArray = [], dataArray = []) {
     const originalData = originalArray.slice().sort((a, b) => a.name[0].localeCompare(b.name[0]))
     const ArrayData = dataArray.slice().sort((a, b) => a.name[0].localeCompare(b.name[0]))

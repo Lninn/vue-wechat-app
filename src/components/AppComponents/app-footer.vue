@@ -1,6 +1,6 @@
 <template>
     <div class="weui-tabbar wx-bottom">
-        <router-link to="/" class="weui-tabbar__item" exact>
+        <router-link v-if="userType === 3" to="/" class="weui-tabbar__item" exact>
             <img src="@/assets/icon_tabbar.png" class="weui-tabbar__icon">
             <p class="weui-tabbar__label">主页</p>
         </router-link>
@@ -28,7 +28,14 @@
 </style>
 
 <script>
+import { mapGetters, } from 'vuex'
+
 export default {
     name: 'AppFooter',
+    computed: {
+        ...mapGetters('user', [
+            'userType',
+        ])
+    }
 }
 </script>

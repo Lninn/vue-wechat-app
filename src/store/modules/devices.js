@@ -5,6 +5,7 @@ import {
     SET_FORMDATA_DETAIL,
     SET_FORMDATA_REMARK,
     SET_FORMDATA_FILES,
+    SET_FORMDATA_CLEAR,
 } from '../mutation-types'
 
 import weui from 'weui.js'
@@ -55,7 +56,7 @@ const getters = {
         return true
     },
     getPostData: state => {
-        const data = new FormData()
+        const data = new URLSearchParams()
         const { connection, detail, remark, files } = state.formData
 
         data.append('name', connection.name)
@@ -91,6 +92,11 @@ const mutations = {
     [SET_FORMDATA_FILES] (state, value) {
         state.formData.files = value
     },
+    [SET_FORMDATA_CLEAR] (state) {
+        Object.keys(state.formData).forEach(key => {
+            state.formData[key] = null
+        })
+    },
 }
 
 const actions = {
@@ -108,18 +114,16 @@ const actions = {
             })
         })
     },
-    submit({ getters, }) {
+    submit({ getters, commit, }) {
         return new Promise((resolve, reject) => {
-            maintainDevice(getters.getPostData).then(response => {
-                const data = response.data
-                if (data.code === 2000) {
-                    resolve()
-                } else {
-                    reject()
-                }
-            })
+            maintainDevice(getters.getPostData)
+                .then(data => {
+                    commit(SET_FORMDATA_CLEAR)
+                    resolve(data)
+                })
+                .catch(err => reject(err))
         })
-    }
+    },
 }
 
 export default {

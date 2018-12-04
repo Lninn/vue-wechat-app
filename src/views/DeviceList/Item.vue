@@ -39,18 +39,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Item',
-    props: {
-        device: {
-            type: Object,
-            required: true,
-        },
-    },
-}
-</script>
-
 <style lang="less" scoped>
 h4 {
     font-size: 1em;
@@ -120,3 +108,15 @@ h4 {
     }
 }    
 </style>
+
+<script>
+export default {
+    name: 'Item',
+    props: {
+        device: {
+            type: Object,
+            required: true,
+        },
+    },
+}
+</script>

@@ -63,7 +63,7 @@ export default {
             toggleClass(elem, 'weui-bar__item_on')
             this.imgText = !this.imgText
         },
-    }
+    },
 }
 </script>
 

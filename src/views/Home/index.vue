@@ -22,8 +22,7 @@ import Avator from './components/Avator.vue'
 import Scan from './components/Scan.vue'
 import DeviceList from '../DeviceList/index' 
 
-import { createNamespacedHelpers } from 'vuex'
-const { mapGetters, } = createNamespacedHelpers('user')
+import { mapGetters, } from 'vuex'
 
 export default {
     name: 'Home',
@@ -31,7 +30,7 @@ export default {
         Avator, Scan, DeviceList, Layout,
     },
     computed: {
-        ...mapGetters([
+        ...mapGetters('user', [
             'loginName',
         ]),
     },

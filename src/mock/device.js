@@ -1,13 +1,12 @@
 import Mock from 'mockjs'
-import { param2Obj, getRandomInt } from '@/utils'
+import { param2Obj, getRandomInt, } from '@/utils'
 
 const Random = Mock.Random
 
 const List = []
-const count = 30
+const count = 10
 
 const baseContent = '我是测试数据'
-const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
@@ -99,11 +98,15 @@ export default {
       items: pageList,
     }), }
   },
-  getDevice: (config) => {
-    const { id } = param2Obj(config.url)
+  getDevice: () => {
+    // const { id } = param2Obj(config.url)
     return { ok: true, text: JSON.stringify(device()), }
   },
-  maintainDevice: config => {
-    return { errmsg: 'success', code: 2000, }
+  maintainDevice: () => {
+    const data = {
+      msg: '提交成功',
+    }
+
+    return { ok: true, text: JSON.stringify(data), }
   },
 }

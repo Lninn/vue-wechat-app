@@ -23,9 +23,8 @@ const getState = function(key) {
 const state = getState('user')
 
 const getters = {
-    loginName: state => {
-        return state.user.name
-    },
+    loginName: state => state.user.name,
+    userType: state => state.user.type,
 }
 
 const mutations = {
@@ -52,6 +51,7 @@ const actions = {
     },
     logout() {
         logoutUser()
+        router.push('/')
     },
     register({ commit, }, user) {
         registerUser(user)

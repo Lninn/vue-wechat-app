@@ -70,3 +70,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### 普通客户
 
     创建 评价
+
+#### TODO 
+
+维护设备的时候刷新页面数据会消失
+
+设备报修 -> 接受工单？

@@ -6,8 +6,8 @@ const Random = Mock.Random
 const List = []
 const count = 20
 
-const baseContent = '我是测试数据'
-const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
+// const baseContent = '我是测试数据'
+// const image_uri = 'http://back.auto888.com.cn/upload/titleimg'
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
@@ -58,7 +58,7 @@ const getImages = function(num) {
 }
 
 export default {
-  getList: config => {
+  getList: (config) => {
     const { title, page = 1, limit = 20, sort } = param2Obj(config.url)
 
     let mockList = List.filter(item => {
@@ -72,10 +72,11 @@ export default {
 
     const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
 
+    // return { ok: true, text: JSON.stringify({ total: 0, items: [] }) }
     return { ok: true, text: JSON.stringify({ total: mockList.length, items: pageList }) }
   },
-  getWorkOrder: (config) => {
-    const { id } = param2Obj(config.url)
+  getWorkOrder: () => {
+    // const { id } = param2Obj(config.url)
     
     const responseJSON = {
       information: getInformation(),

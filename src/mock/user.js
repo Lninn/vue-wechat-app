@@ -1,5 +1,5 @@
 import Mock from 'mockjs'
-import { param2Obj, } from '@/utils'
+// import { param2Obj, } from '@/utils'
 
 const Random = Mock.Random
 
@@ -18,8 +18,8 @@ let user = Mock.mock({
 })
 
 export default {
-  getProfile: config => {
-    const { id } = param2Obj(config.url)
+  getProfile: () => {
+    // const { id } = param2Obj(config.url)
     
     return user
   },
@@ -35,7 +35,6 @@ export default {
     // save new user
     newUser.id = Mock.mock('@guid')
     newUser['token'] = 'fake-jwt-token'
-    newUser['type'] = 2
     newUser['lastTime'] = new Date(),
     users.push(newUser)
     localStorage.setItem('users', JSON.stringify(users))
