@@ -5,7 +5,8 @@ Vue.use(Router)
 
 export const router = new Router({
     scrollBehavior: () => ({ y: 0 }),
-    mode: 'history',
+    // history 在本地运行有 bug
+    mode: 'hash',
     routes: [
       {
           path: '/',
