@@ -36,7 +36,7 @@ import FeedbackCell from './components/FeedbackCell'
 import EvaluateCell from './components/EvaluateCell'
 
 import { createNamespacedHelpers } from 'vuex'
-const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpers('workOrder')
+const { mapGetters, mapActions } = createNamespacedHelpers('workOrder')
 
 export default {
     name: 'WorkOrderInformation',

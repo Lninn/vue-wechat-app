@@ -15,7 +15,7 @@ service.interceptors.response.use(
     if (!data.ok) {
         if (response.status === 401) {
             // auto logout if 401 response returned from api
-            logout()
+            // logout()
             location.reload(true)
         }
 
@@ -25,7 +25,7 @@ service.interceptors.response.use(
     return text
   },
   error => {
-    console.log('err' + error) // for debug
+    // console.log('err' + error) // for debug
     return Promise.reject(error)
   }
 )

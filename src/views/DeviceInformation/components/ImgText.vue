@@ -18,15 +18,15 @@ export default {
         },
     },
     components: {
-        Item: {
-            props: {
-                image: {
-                    type: Object,
-                    required: true,
-                },
-            },
-            template: `<img :id="image.id" :src="image.path" />`,
-        },
+        // Item: {
+        //     props: {
+        //         image: {
+        //             type: Object,
+        //             required: true,
+        //         },
+        //     },
+        //     template: `<img :id="image.id" :src="image.path" />`,
+        // },
     },
 }
 </script>
