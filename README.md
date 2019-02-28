@@ -1,35 +1,41 @@
-# frontend
+# 设备维护系统
 
-## Project setup
+## 下载
 
+```git
+git clone git@github.com:Lninn/vue-wechat-app.git
 ```
+
+## 安装
+
+```git
+cd /vue-wechat-app
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 调试
 
-```
+```git
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+### 构建
+
+```git
 npm run build
 ```
 
-### Run your tests
-```
+### 测试
+
+```git
 npm run test
 ```
 
-### Lints and fixes files
-```
+### Lints检查
+
+```git
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 ### Pages
 
@@ -56,23 +62,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - workorder
   - /workorders
   - /workorders/id
-
-### WorkOrder Detail
-
-#### 工单
-
-    创建 被接收 反馈 结束
-
-#### 维护人员
-
-    确认接收、反馈、完成
-
-#### 普通客户
-
-    创建 评价
-
-#### TODO 
-
-维护设备的时候刷新页面数据会消失
-
-设备报修 -> 接受工单？
