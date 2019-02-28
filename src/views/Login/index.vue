@@ -7,8 +7,8 @@
             <div class="weui-flex">
                 <div class="weui-flex__item">
                     <div class="weui-cells weui-cells_form">
-                        <AppInput icon="" type="text" placeholder="请输入用户名" v-model="loginForm.username" />
-                        <AppInput icon="" type="password" placeholder="请输入密码" v-model="loginForm.password" />
+                        <AppInput icon="" type="text" placeholder="请输入用户名(admin)" v-model="loginForm.username" />
+                        <AppInput icon="" type="password" placeholder="请输入密码(Aa123456)" v-model="loginForm.password" />
                         <div class="weui-cell">
                             <div class="weui-cell__bd">
                                 <AppLargeButton text="登录" @onClick="onLogin"/>

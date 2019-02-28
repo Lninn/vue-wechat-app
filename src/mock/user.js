@@ -3,6 +3,20 @@ import Mock from 'mockjs'
 
 const Random = Mock.Random
 
+// 设置默认账户
+const initUser = {
+  address: "none",
+  id: "8B7e1BA7-1cf2-BF5A-9B9f-2Aa61030CE13",
+  lastTime: 'none',
+  name: "admin",
+  password: "Aa123456",
+  phone: "00000000000",
+  token: "fake-jwt-token",
+  type: 3,
+  username: "admin",
+}
+localStorage.setItem('users', JSON.stringify([initUser]))
+
 let users = JSON.parse(localStorage.getItem('users')) || []
 
 let user = Mock.mock({
